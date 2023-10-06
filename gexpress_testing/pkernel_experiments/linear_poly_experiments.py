@@ -108,29 +108,6 @@ def fit_evaluate_model(cv_split, rffs, fhandle, model_type = "Linear",
     else:
         pre_rank, pre_method = 4000, "srht_2"
         if preset_hyperparams is None:
-            '''_ = model._run_pretuning_prep(train_dset, 123,
-                            None, "approximate")
-            possible_hparams = [np.array([2.,0.]),
-                        np.array([1.5,0.]),
-                        np.array([1.,0.]),
-                        np.array([0.5,0.]),
-                        np.array([0.,0.]),
-                        np.array([-0.5,0.]),
-                        np.array([-1.,0.]),
-                        np.array([-1.5,0.]),
-                        np.array([-2.,0.])]
-            nmll_vals = []
-            for possible_hparam in possible_hparams:
-                st = time.time()
-                score = model.approximate_nmll(possible_hparam, train_dset,
-                    max_rank = 3000, nsamples = 25, random_seed = 123,
-                    niter = 1000, tol = 1e-6, pretransform_dir = None,
-                    preconditioner_mode = "srht_2")
-                nmll_vals.append(score)
-                print(time.time() - st, flush=True)
-            nmll = max(nmll_vals)
-            hparams = possible_hparams[np.argmax(nmll_vals)]
-            model._post_tuning_cleanup(train_dset, hparams)'''
             _, _, nmll, _ = model.tune_hyperparams_crude_bayes(train_dset)
             hparams = model.get_hyperparams()
         else:
