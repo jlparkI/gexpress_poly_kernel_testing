@@ -1,0 +1,14 @@
+mkdir: cannot create directory ‘/scratch/temp_dstore’: File exists
+Now retrieving and sorting files...
+Total datapoints: 2129180
+CV split 0
+Tuning complete.
+Model: Linear, Hyperparams: -0.21373110000000003_-2.0794415
+62.52573919296265
+Tuning complete.
+Model: Linear, Hyperparams: -0.21373110000000003_-2.0794415
+221.1609456539154
+Tuning complete.
+Model: Poly, Hyperparams: -0.21373110000000003_-2.3025851
+2337.48845410347
+Tuning complete.
