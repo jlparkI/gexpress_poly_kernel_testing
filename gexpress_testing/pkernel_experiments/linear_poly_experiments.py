@@ -39,7 +39,7 @@ def run_all_cvs(xfiles, pfiles, yfiles, output_file):
     with open(output_file, "a+", encoding="utf-8") as fhandle:
         fhandle.write("Model,RFFs,Input_data,"
                 "Train_pearson_r,Valid_pearson_r,hparams,NMLL\n")
-        for i, cv_split in enumerate(cv_splits):
+        for i, cv_split in enumerate(cv_splits[1:]):
             print(f"CV split {i}", flush=True)
             _ = fit_evaluate_model(cv_split, 2048, fhandle, "Linear",
                                    None, "promoters")
@@ -50,7 +50,7 @@ def run_all_cvs(xfiles, pfiles, yfiles, output_file):
                                     None, "promoters")
             merge_h = fit_evaluate_model(cv_split, 16384, fhandle, "Poly",
                                     None, "merged")
-            for rffs in [32768,65536]:
+            for rffs in [32768]:
                 _ = fit_evaluate_model(cv_split, rffs, fhandle, "Poly",
                                 prom_h, "promoters")
                 _ = fit_evaluate_model(cv_split, rffs, fhandle, "Poly",
