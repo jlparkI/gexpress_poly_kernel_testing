@@ -4,6 +4,8 @@ import random
 import itertools
 from math import ceil
 import numpy as np
+from sklearn.preprocessing import StandardScaler
+
 
 
 def get_file_lists(start_dir, prom_dir, ydir, en_dir):
@@ -20,10 +22,12 @@ def get_file_lists(start_dir, prom_dir, ydir, en_dir):
     return prom_files, yfiles, en_files
 
 
+
 def filter_data(prom_path, ypath, en_path, nonredundant_ids,
                 storage_dir):
     """Filters the input data by making copies only of files with
-    nonredundant lines.
+    nonredundant lines. Generates merged files containing both
+    promoters and enhancers.
 
     Args:
         prom_path (str): A filepath to the directory with promoter counts.
@@ -83,12 +87,75 @@ def filter_data(prom_path, ypath, en_path, nonredundant_ids,
     return out_xfiles, out_pfiles, out_yfiles
 
 
+
+def get_final_data_list(prom_path, ypath, nonredundant_ids,
+                storage_dir):
+    """Filters the input data by making copies only of files with
+    nonredundant lines, and saves data in appropriately-sized chunks
+    for the exact quadratic. Uses promoter features only.
+
+    Args:
+        prom_path (str): A filepath to the directory with promoter counts.
+        ypath (str): A filepath to the directory with yvalues.
+        nonredundant_ids (list): List of the nonredundant cell lines.
+        storage_dir (str): A filepath to a temporary storage dir where
+            the data is saved. In a cluster environment, this can be
+            /scratch.
+
+    Returns:
+        out_pfiles (list): A list of numpy files in storage_dir with promoter
+            counts only.
+        out_yfiles (list): A list of numpy files in storage dir with yvalues.
+
+    Raises:
+        ValueError: A ValueError is raised if one or more expected nonredundant
+            cell line ids are not found
+    """
+    out_pfiles, out_yfiles = [], []
+    ndpoints = 0
+
+    print("Now retrieving and sorting files...", flush=True)
+
+    for nonred_id in nonredundant_ids:
+        pfile = os.path.join(prom_path, f"{nonred_id}_count_matrix_pro.npy")
+        yfile = os.path.join(ypath, f"{nonred_id}.y.npy")
+        try:
+            promoters = np.load(pfile)
+            ydata = np.load(yfile)
+        except:
+            raise ValueError(f"Could not find numpy files for nonredundant id {nonred_id}")
+
+        promoters = promoters.astype(np.float32)
+        ndpoints += promoters.shape[0]
+
+        chunk_size = 250
+
+        for j in range(0, promoters.shape[0], chunk_size):
+            out_prom_file = os.path.join(storage_dir, f"{nonred_id}_{j}_promoters.npy")
+            out_yfile = os.path.join(storage_dir, f"{nonred_id}_{j}_y.npy")
+
+            np.save(out_prom_file, promoters[j:j+chunk_size,...])
+            np.save(out_yfile, ydata[j:j+chunk_size])
+
+            out_pfiles.append(out_prom_file)
+            out_yfiles.append(out_yfile)
+
+    print(f"Total datapoints: {ndpoints}", flush=True)
+    return out_pfiles, out_yfiles
+
+
+
+
+
+
 def cleanup_storage(xfiles, pfiles, yfiles):
     """Cleans up the temporary files created in the storage dir."""
-    for xfile, pfile, yfile in zip(xfiles, pfiles, yfiles):
+    for xfile in xfiles:
         os.remove(xfile)
-        os.remove(pfile)
+    for yfile in yfiles:
         os.remove(yfile)
+    for pfile in pfiles:
+        os.remove(pfile)
 
 
 def get_cv_splits(xfiles, pfiles, yfiles):
