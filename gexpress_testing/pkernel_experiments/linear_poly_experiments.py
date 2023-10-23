@@ -9,15 +9,39 @@ import numpy as np
 from scipy.stats import pearsonr
 from xGPR import xGPRegression as xGPReg
 from xGPR import build_offline_fixed_vector_dataset, build_online_dataset
-from ..utilities.utilities import get_cv_splits
+from ..utilities.utilities import get_tt_split
 
 
-def evaluate_model(model, trainx_files, trainy_files, validx_files, validy_files,
-                   scaler = None):
-    """Evaluates a trained model against the training and validation
-    data."""
-    return eval_batch(model, trainx_files, trainy_files, scaler), \
-            eval_batch(model, validx_files, validy_files, scaler)
+def single_file_evaluation(model, tt_split, data_key, fhandle,
+                           model_type, data_type, data_path):
+    """Evaluates the pearson r separately for each nonredundant id in
+    the validation set."""
+    for data_group in ["train", "valid"]:
+        all_y, all_preds = [], []
+
+        for idnum, data_batch in tt_split[f"{data_group}_ids"].items():
+            batch_y, batch_preds = [], []
+            for xfile, yfile in zip(data_batch[data_key], data_batch["y"]):
+                xdata, ydata = np.load(xfile), np.load(yfile)
+                preds = model.predict(xdata, get_var=False)
+
+                all_y.append(ydata)
+                batch_y.append(ydata)
+                all_preds.append(preds)
+                batch_preds.append(preds)
+
+            batch_pearsonr = pearsonr(np.concatenate(batch_preds),
+                                      np.concatenate(batch_y))[0]
+            fhandle.write(f"{idnum},{data_group},{batch_pearsonr},"
+                        f"{model_type},{data_type},{data_path}\n")
+
+        all_pearsonr = pearsonr(np.concatenate(all_preds),
+                                      np.concatenate(all_y))[0]
+        fhandle.write(f"ALL_LINES,{data_group},{all_pearsonr},"
+                        f"{model_type},{data_type},{data_path}\n")
+        fhandle.flush()
+
+
 
 
 def eval_batch(model, xfiles, yfiles, scaler = None):
@@ -45,48 +69,10 @@ def eval_array(model, xdata, ydata, scaler = None):
     return pearsonr(preds, ydata)[0]
 
 
-def run_all_cvs(xfiles, pfiles, yfiles, output_file):
-    """Runs all of the planned experiments against the nonredundant ids.
-    Loop over the CV splits. For each split, train 1) a linear model
-    using promoters only, 2) a linear model using promoters and enhancers,
-    3) a poly model using promoters only with different RFFs,
-    4) a poly model using enhancers and promoters,
-    4) a poly model using an exact quadratic (nonapproximated)
-    trained on promoters only.
-    Write all results to the output file."""
-    cv_splits = get_cv_splits(xfiles, pfiles, yfiles)
-
-    with open(output_file, "a+", encoding="utf-8") as fhandle:
-        for i, cv_split in enumerate(cv_splits):
-            print(f"CV split {i}", flush=True)
-            _ = fit_evaluate_model(cv_split, 2048, fhandle, "Linear",
-                                   None, "promoters")
-            _ = fit_evaluate_model(cv_split, 2048, fhandle, "Linear",
-                                   None, "merged")
-
-            prom_h = fit_evaluate_model(cv_split, 16384, fhandle, "Poly",
-                                    None, "promoters")
-            merge_h = fit_evaluate_model(cv_split, 16384, fhandle, "Poly",
-                                    None, "merged")
-            for rffs in [32768]:
-                _ = fit_evaluate_model(cv_split, rffs, fhandle, "Poly",
-                                prom_h, "promoters")
-                _ = fit_evaluate_model(cv_split, rffs, fhandle, "Poly",
-                                merge_h, "merged")
-            # The hard-coded hyperparameters here were obtained from
-            # tuning using the approximate kernel. TODO: Move these
-            # to a constants file.
-            _ = fit_evaluate_eq_model(cv_split, fhandle,
-                            np.array([-0.1342151, -2.3025851]),
-                                      "promoters")
-
-
-
 def fit_final_exact_quad(xfiles, yfiles, output_path):
     """Fits the final exact quadratic model to the full dataset.
     This model can be used to extract feature / interaction
     term importance."""
-
     # The hard-coded hyperparameters here were obtained from
     # tuning using the approximate kernel. TODO: Move these
     # to a constants file.
@@ -94,16 +80,28 @@ def fit_final_exact_quad(xfiles, yfiles, output_path):
                     np.array([-0.1342151, -2.3025851]))
 
 
+def run_traintest_split(pfiles, yfiles, nonredundant_ids, data_path,
+                        output_file):
+    """Fits linear and approximated quadratic to 40 cell lines,
+    then tests on the rest, using promoters only."""
+    tt_split = get_tt_split([], pfiles, yfiles, nonredundant_ids)
+    with open(output_file, "a+", encoding="utf-8") as fhandle:
+        _ = fit_evaluate_model(tt_split, 2048, fhandle, data_path,
+                            "Linear", None, "promoters")
+        prom_h = fit_evaluate_model(tt_split, 32768, fhandle, data_path,
+                            "Poly", None, "promoters")
 
 
-def fit_evaluate_model(cv_split, rffs, fhandle, model_type = "Linear",
-                preset_hyperparams = None, data_type = "promoters"):
+
+def fit_evaluate_model(tt_split, rffs, fhandle, data_path,
+                model_type = "Linear", preset_hyperparams = None,
+                data_type = "promoters"):
     """Evaluates a linear model on the split supplied by
     caller.
 
     Args:
-        cv_split (dict): A dict containing a list of the training
-            and validation files.
+        tt_split (dict): A dict containing a list of the training
+            and validation files, organized by cell line id.
         rffs (int): The number of rffs. Ignored for linear models.
         fhandle: A handle to the output file where results on
             the training and validation sets should be written.
@@ -120,25 +118,32 @@ def fit_evaluate_model(cv_split, rffs, fhandle, model_type = "Linear",
             array so that caller can recycle them if desired.
     """
     st = time.time()
-    trainy, validy = cv_split["train_y"], cv_split["valid_y"]
+    data_key = "x"
     if data_type == "promoters":
-        trainx, validx = cv_split["train_p"], cv_split["valid_p"]
-    else:
-        trainx, validx = cv_split["train_x"], cv_split["valid_x"]
+        data_key = "p"
+    trainy, trainx = [], []
+
+    for nonred_id in tt_split["train_ids"]:
+        trainx += tt_split["train_ids"][nonred_id][data_key]
+        trainy += tt_split["train_ids"][nonred_id]["y"]
+
     train_dset = build_offline_fixed_vector_dataset(trainx, trainy,
-                        chunk_size=20000, skip_safety_checks=True)
+                        chunk_size=5000)
 
     # Variance rffs does not matter and is not used. For a linear
     # model the # rffs is ignored. num_threads is ignored if fitting
     # on GPU.
     model = xGPReg(training_rffs = 8192, fitting_rffs = rffs,
-                          variance_rffs = 512, kernel_choice = model_type,
+                          variance_rffs = 64, kernel_choice = model_type,
                           kernel_specific_params={"intercept":True,
                                            "polydegree":2},
-                          verbose = False, device = "gpu",
+                          verbose = True, device = "gpu",
                           num_threads = 10)
     if model_type == "Linear":
         pre_rank, pre_method = 512, "srht"
+        xdim = np.load(trainx[0]).shape[1]
+        if xdim < 512:
+            pre_rank = 256
         _, _, nmll, _ = model.tune_hyperparams_crude_bayes(train_dset)
         hparams = model.get_hyperparams()
 
@@ -151,27 +156,27 @@ def fit_evaluate_model(cv_split, rffs, fhandle, model_type = "Linear",
             nmll = "NA"
             hparams = preset_hyperparams.copy()
 
-    print("Tuning complete.", flush=True)    
+    print(f"Tuning complete. Hparams: {hparams}", flush=True)
     preconditioner, ratio = model.build_preconditioner(train_dset,
                        max_rank = pre_rank, method = pre_method,
                         preset_hyperparams = hparams)
+    print(f"Ratio: {ratio}", flush=True)
     model.fit(train_dset, preconditioner = preconditioner,
-                 mode = "cg", tol = 1e-6)
-    train_r, valid_r = evaluate_model(model, trainx, trainy,
-                                        validx, validy)
+                 mode = "cg", tol = 1e-6, suppress_var=True)
 
     hparams = "_".join([str(z) for z in model.get_hyperparams().tolist()])
     print(f"Model: {model_type}, Hyperparams: {hparams}", flush=True)
 
-    fhandle.write(f"{model_type},{model.fitting_rffs},{data_type},"
-                f"{train_r},{valid_r},{hparams},{nmll}\n")
-    fhandle.flush()
+    single_file_evaluation(model, tt_split, data_key, fhandle,
+                           model_type, data_type, data_path)
+
     print(time.time() - st)
     return model.get_hyperparams()
 
 
+
 def fit_evaluate_eq_model(cv_split, fhandle, preset_hyperparams = None,
-                          data_type = "promoters"):
+                          data_type = "promoters", online_dataset = True):
     """Evaluates the ExactQuadratic kernel on the cv split passed
     by caller.
 
@@ -185,6 +190,8 @@ def fit_evaluate_eq_model(cv_split, fhandle, preset_hyperparams = None,
             a previous tuning run are used; otherwise, hyperparameters
             are tuned.
         data_type (str): One of 'promoters', 'merged'.
+        online_dataset (bool): If False, build an offline dataset
+            so that data is only loaded one chunk at a time.
 
     Returns:
         hparams (np.ndarray): The hyperparameters as a numpy
@@ -199,12 +206,14 @@ def fit_evaluate_eq_model(cv_split, fhandle, preset_hyperparams = None,
 
     #Loading all of the training data into memory is...not great --
     #just doing this as a temporary hack -- will fix this later.
-    trainx = np.vstack([np.load(x) for x in trainx]).astype(np.float64)
-    trainy = np.concatenate([np.load(y) for y in trainy])
-    train_dset = build_online_dataset(trainx, trainy, chunk_size=250)
+    if online_dataset:
+        trainx = np.vstack([np.load(x) for x in trainx]).astype(np.float64)
+        trainy = np.concatenate([np.load(y) for y in trainy])
+        train_dset = build_online_dataset(trainx, trainy, chunk_size=250)
 
-    #train_dset = build_offline_fixed_vector_dataset(trainx, trainy,
-    #                    chunk_size=500, skip_safety_checks=True)
+    else:
+        train_dset = build_offline_fixed_vector_dataset(trainx, trainy,
+                        chunk_size=250, skip_safety_checks=True)
 
     # Variance rffs does not matter and is not used. For a linear
     # model the # rffs is ignored. num_threads is ignored if fitting
@@ -226,11 +235,15 @@ def fit_evaluate_eq_model(cv_split, fhandle, preset_hyperparams = None,
     model.fit(train_dset, preconditioner = preconditioner,
                  max_iter=500, mode = "lbfgs",
                 preset_hyperparams = hparams)
-    train_r = eval_array(model, trainx, trainy)
+    if online_dataset:
+        train_r = eval_array(model, trainx, trainy)
+    else:
+        train_r = eval_batch(model, trainx, trainy)
     valid_r = eval_batch(model, validx, validy)
 
     hparams = "_".join([str(z) for z in model.get_hyperparams().tolist()])
     print(f"Model: ExactQuadratic, Hyperparams: {hparams}", flush=True)
+    print(f"train: {train_r}, valid: {valid_r}", flush=True)
 
     fhandle.write(f"ExactQuadratic,{model.fitting_rffs},{data_type},"
                 f"{train_r},{valid_r},{hparams},{nmll}\n")

@@ -183,3 +183,28 @@ def get_cv_splits(xfiles, pfiles, yfiles):
         cv_splits[i]["valid_y"] = [yfiles[j] for j in valid_idx]
 
     return cv_splits
+
+
+
+def get_tt_split(xfiles, pfiles, yfiles, nonred_ids, num_train=40):
+    """Breaks the input file lists up into a single train-test
+    split with 40 cell lines for training, using promoter data
+    only."""
+    train_ids, test_ids = nonred_ids[:num_train], nonred_ids[num_train:]
+
+    print(f"The training nonred ids are: {train_ids}", flush=True)
+
+    tt_split = {"train_ids":[], "valid_ids":[]}
+
+    for split_type, split_ids in [("train", train_ids), ("valid", test_ids)]:
+        tt_split[f"{split_type}_ids"] = {}
+        for split_id in split_ids:
+            tt_split[f"{split_type}_ids"][split_id] = {}
+            tt_split[f"{split_type}_ids"][split_id]["p"] = [pfile for pfile in pfiles if
+                                os.path.basename(pfile).split("_")[0] == split_id]
+            tt_split[f"{split_type}_ids"][split_id]["x"] = [xfile for xfile in xfiles if
+                                os.path.basename(xfile).split("_")[0] == split_id]
+            tt_split[f"{split_type}_ids"][split_id]["y"] = [yfile for yfile in yfiles if
+                                os.path.basename(yfile).split("_")[0] == split_id]
+
+    return tt_split
