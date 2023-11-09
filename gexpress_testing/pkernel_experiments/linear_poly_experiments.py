@@ -77,7 +77,7 @@ def fit_final_exact_quad(xfiles, yfiles, output_path):
     # tuning using the approximate kernel. TODO: Move these
     # to a constants file.
     fit_final_model(xfiles, yfiles, output_path,
-                    np.array([-0.1342151, -2.3025851]))
+                    np.array([-0.2256119, 0]))
 
 
 def run_traintest_split(pfiles, yfiles, nonredundant_ids, data_path,
@@ -144,13 +144,15 @@ def fit_evaluate_model(tt_split, rffs, fhandle, data_path,
         xdim = np.load(trainx[0]).shape[1]
         if xdim < 512:
             pre_rank = 256
-        _, _, nmll, _ = model.tune_hyperparams_crude_bayes(train_dset)
+        bounds = np.array([[-6.907,2], [-0.001,0.001]])
+        _, _, nmll, _ = model.tune_hyperparams_crude_bayes(train_dset, bounds=bounds)
         hparams = model.get_hyperparams()
 
     else:
         pre_rank, pre_method = 4000, "srht_2"
         if preset_hyperparams is None:
-            _, _, nmll, _ = model.tune_hyperparams_crude_bayes(train_dset)
+            bounds = np.array([[-6.907,2], [-0.001,0.001]])
+            _, _, nmll, _ = model.tune_hyperparams_crude_bayes(train_dset, bounds=bounds)
             hparams = model.get_hyperparams()
         else:
             nmll = "NA"
@@ -282,7 +284,7 @@ def fit_final_model(xfiles, yfiles, output_path, preset_hyperparams):
                         preset_hyperparams = hparams)
     print(f"Ratio: {ratio}", flush=True)
     model.fit(train_dset, preconditioner = preconditioner,
-                 max_iter=500, mode = "lbfgs",
+                 max_iter=1000, mode = "lbfgs",
                 preset_hyperparams = hparams)
-    with open(os.path.join(output_path, "final_promoter_exact_quad_model.pk"), "wb") as fhandle:
+    with open(os.path.join(output_path, "exact_quad_overlapped_pro.pk"), "wb") as fhandle:
         pickle.dump(model, fhandle)

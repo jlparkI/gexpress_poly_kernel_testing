@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#SBATCH --job-name 40vr
-#SBATCH --output 40vr
-#SBATCH -w gpu-2
+#SBATCH --job-name aic_bic
+#SBATCH --output aic_bic
+#SBATCH -w gpu-1
 #SBATCH -p gpu
 
 source /stg3/data3/Jonathan/.bashrc
@@ -12,7 +12,8 @@ module load cuda
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/stg3/data3/Jonathan/cuda_reqs/
 conda activate xgpr
 
-export CUDA_VISIBLE_DEVICES=2
+export CUDA_VISIBLE_DEVICES=3
+
 
 mkdir /scratch/dstore_2
 
@@ -22,6 +23,6 @@ python run_key_experiments.py --prom_path /stg3/data1/sam/enhancer_prediction/fi
 	--en_path /stg3/data3/Jonathan/poly_kernel_motifs/motif_count_matrices_enh_3\
 	--nonred_fpath /stg3/data3/Jonathan/poly_kernel_motifs/EpiMapID_Name_nonDup.txt \
 	--storage /scratch/dstore_2 \
-	--exp_type 40vsrest
+	--exp_type bic
 
 rm -rf /scratch/dstore_2

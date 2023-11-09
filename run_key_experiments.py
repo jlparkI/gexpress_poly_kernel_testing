@@ -4,9 +4,10 @@ import os
 import sys
 import argparse
 
-from gexpress_testing.pkernel_experiments.linear_poly_experiments import fit_final_exact_quad
-from gexpress_testing.pkernel_experiments.linear_poly_experiments import run_traintest_split
+#from gexpress_testing.pkernel_experiments.linear_poly_experiments import fit_final_exact_quad
+#from gexpress_testing.pkernel_experiments.linear_poly_experiments import run_traintest_split
 from gexpress_testing.utilities.utilities import filter_data, cleanup_storage, get_final_data_list
+from gexpress_testing.pkernel_experiments.l1_regularization_experiments import hyperparameter_tuning
 
 
 
@@ -29,7 +30,7 @@ def gen_arg_parser():
             "can be stored.")
     arg_parser.add_argument("--exp_type", type=str,
                             help="Argument should be one of 40vsrest, "
-                            "final, cv. If 40vsrest, the model is fitted "
+                            "final, cv, bic. If 40vsrest, the model is fitted "
                             "to 40 randomly selected cell lines and tested "
                             "on the remainder. If final, the final exact "
                             "quadratic model is trained. If cv, a 5x cv is "
@@ -53,8 +54,19 @@ if __name__ == "__main__":
         raise ValueError("You supplied a nonredundant file that does "
                          "not exist.")
 
+    if args.exp_type == "bic":
+        #For calculating BIC, we fit an exact quadratic using
+        #L1 regularization and calculate BIC / AIC using a simple
+        #gridsearch across the available hyperparameter.
+        xfiles = []
+        pfiles, yfiles = get_final_data_list(args.prom_path, args.ypath,
+                    nonredundant_ids, args.storage)
+        output_fpath = os.path.join(home_dir, "results", "bic_aic_l1_results.csv")
+        hyperparameter_tuning(pfiles, yfiles, nonredundant_ids, output_fpath)
+        fit_final_exact_quad(pfiles, yfiles, output_fpath)
 
-    if args.exp_type == "final":
+
+    elif args.exp_type == "final":
         # For fitting the final model, we create one set of files in
         # the storage folder -- the promoter counts saved as 32 bit
         # floats, divided into small chunks for ease of use.

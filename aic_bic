@@ -1,0 +1,98 @@
+Now retrieving and sorting files...
+Total datapoints: 2129180
+The training nonred ids are: ['BSS00004', 'BSS00007', 'BSS00043', 'BSS00045', 'BSS00062', 'BSS00074', 'BSS00079', 'BSS00088', 'BSS00089', 'BSS00096', 'BSS00102', 'BSS00112', 'BSS00113', 'BSS00121', 'BSS00145', 'BSS00160', 'BSS00171', 'BSS00178', 'BSS00189', 'BSS00197', 'BSS00211', 'BSS00214', 'BSS00232', 'BSS00246', 'BSS00281', 'BSS00287', 'BSS00296', 'BSS00310', 'BSS00316', 'BSS00332', 'BSS00352', 'BSS00353', 'BSS00372', 'BSS00376', 'BSS00381', 'BSS00385', 'BSS00439', 'BSS00476', 'BSS00478', 'BSS00481']
+starting fitting
+Nfev 0 complete, loss 24499784.001223125
+Nfev 5 complete, loss 5882724.377475516
+Nfev 10 complete, loss 4851968.988756146
+Nfev 15 complete, loss 4113888.507456139
+Nfev 20 complete, loss 2288890.3206969853
+Nfev 25 complete, loss 2364944.6947875703
+Nfev 30 complete, loss 1662418.399701851
+Nfev 35 complete, loss 1653230.5006303694
+Nfev 40 complete, loss 1768175.8674552485
+Nfev 45 complete, loss 1614299.6274411958
+Nfev 50 complete, loss 1822301.1570985802
+Nfev 55 complete, loss 1612718.1952752206
+Nfev 60 complete, loss 1593057.8629999482
+Nfev 65 complete, loss 1529321.7184803567
+Nfev 70 complete, loss 1529321.7184811167
+Nfev 75 complete, loss 1529321.7184803567
+Nfev 80 complete, loss 1529321.7184803567
+Nfev 85 complete, loss 1529321.7184803567
+Nfev 90 complete, loss 114437273333172.06
+Nfev 95 complete, loss 465504322144.8789
+Nfev 100 complete, loss 2026350.6137820578
+Nfev 105 complete, loss 1340837.4526515976
+Nfev 110 complete, loss 1547642.7753938208
+Nfev 115 complete, loss 1340808.4169433028
+Nfev 120 complete, loss 1340724.1115336264
+Nfev 125 complete, loss 3389643945313148.0
+Nfev 130 complete, loss 13951190183980.63
+Nfev 135 complete, loss 49105898412.9965
+Nfev 140 complete, loss 1239787.4794296273
+Fitting complete.
+Model: ExactQuadratic, Hyperparams: 1.5
+train: 0.48116931297882076, valid: 0.4845791886390253
+2159.2736847400665
+starting fitting
+Nfev 0 complete, loss 24499784.001223125
+Nfev 5 complete, loss 5882724.259964383
+Nfev 10 complete, loss 4851968.486260459
+Nfev 15 complete, loss 4113888.3102952903
+Nfev 20 complete, loss 2288890.1985775116
+Nfev 25 complete, loss 2364944.268564867
+Nfev 30 complete, loss 1662418.1742536835
+Nfev 35 complete, loss 1653230.2827253425
+Nfev 40 complete, loss 1768175.5462669122
+Nfev 45 complete, loss 1614299.3494864318
+Nfev 50 complete, loss 1822300.754512245
+Nfev 55 complete, loss 1612717.9131640063
+Nfev 60 complete, loss 1593057.568303318
+Nfev 65 complete, loss 1529321.3486147271
+Nfev 70 complete, loss 1529321.3486154955
+Nfev 75 complete, loss 1529321.3486147271
+Nfev 80 complete, loss 1529321.3486147271
+Nfev 85 complete, loss 1529321.3486147271
+Fitting complete.
+Model: ExactQuadratic, Hyperparams: 2.0
+train: 0.4762347588159348, valid: 0.47937579039147593
+1343.7336168289185
+starting fitting
+Nfev 0 complete, loss 24499784.001223125
+Nfev 5 complete, loss 5882724.445403751
+Nfev 10 complete, loss 4851969.2792277895
+Nfev 15 complete, loss 4113888.6214261893
+Nfev 20 complete, loss 2288890.3912879
+Nfev 25 complete, loss 2364944.9411685765
+Nfev 30 complete, loss 1662418.5300236568
+Nfev 35 complete, loss 1653230.6265916368
+Nfev 40 complete, loss 1768176.0531199442
+Nfev 45 complete, loss 1614299.7881146949
+Nfev 50 complete, loss 1822301.389816342
+Nfev 55 complete, loss 1612718.358351367
+Nfev 60 complete, loss 1593058.0333511552
+Nfev 65 complete, loss 1529321.9322831945
+Nfev 70 complete, loss 1529321.9322839617
+Nfev 75 complete, loss 1529321.9322831945
+Nfev 80 complete, loss 1529321.9322831947
+Nfev 85 complete, loss 1529321.9322831945
+Nfev 90 complete, loss 114437288967923.14
+Nfev 95 complete, loss 465504386704.9258
+Nfev 100 complete, loss 2026350.8430316937
+Nfev 105 complete, loss 1340837.685015549
+Nfev 110 complete, loss 1547642.9881754795
+Nfev 115 complete, loss 1340808.6494211392
+Nfev 120 complete, loss 1340724.3466268824
+Nfev 125 complete, loss 3389644469611076.5
+Nfev 130 complete, loss 13951192345779.178
+Nfev 135 complete, loss 49105908879.53474
+Nfev 140 complete, loss 1239787.4573960865
+Fitting complete.
+Model: ExactQuadratic, Hyperparams: -0.9999999999999998
+train: 0.48116931422882275, valid: 0.48457918993512894
+2153.672381401062
+Traceback (most recent call last):
+  File "/stg3/data3/Jonathan/poly_kernel_motifs/gexpress_poly_kernel_testing/run_key_experiments.py", line 66, in <module>
+    fit_final_exact_quad(pfiles, yfiles, output_fpath)
+NameError: name 'fit_final_exact_quad' is not defined
