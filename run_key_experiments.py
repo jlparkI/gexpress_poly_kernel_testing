@@ -5,16 +5,18 @@ import sys
 import argparse
 
 #from gexpress_testing.pkernel_experiments.linear_poly_experiments import fit_final_exact_quad
-#from gexpress_testing.pkernel_experiments.linear_poly_experiments import run_traintest_split
+from gexpress_testing.pkernel_experiments.linear_poly_experiments import run_traintest_split
 from gexpress_testing.utilities.utilities import filter_data, cleanup_storage, get_final_data_list
-from gexpress_testing.pkernel_experiments.l1_regularization_experiments import hyperparameter_tuning
-
+from gexpress_testing.pkernel_experiments.l1_regularization_experiments import hyperparameter_tuning, l1_testing, l2_testing
+from gexpress_testing.pkernel_experiments.linear_poly_experiments import interact_linfit
 
 
 def gen_arg_parser():
     """Allows for command line arguments to this file."""
     arg_parser = argparse.ArgumentParser(description="Use this command line app "
             "to run key experiments: ")
+    arg_parser.add_argument("--add_interactions", action="store_true", help="If True, "
+                            "add selected promoter-promoter interaction terms.")
     arg_parser.add_argument("--prom_path", type=str, help="A filepath to the "
             "directory containing the promoter motif counts.")
     arg_parser.add_argument("--ypath", type=str, help="A filepath to the "
@@ -30,7 +32,7 @@ def gen_arg_parser():
             "can be stored.")
     arg_parser.add_argument("--exp_type", type=str,
                             help="Argument should be one of 40vsrest, "
-                            "final, cv, bic. If 40vsrest, the model is fitted "
+                            "final, cv, bic, l1, 40vsrest_interact. If 40vsrest, the model is fitted "
                             "to 40 randomly selected cell lines and tested "
                             "on the remainder. If final, the final exact "
                             "quadratic model is trained. If cv, a 5x cv is "
@@ -60,10 +62,25 @@ if __name__ == "__main__":
         #gridsearch across the available hyperparameter.
         xfiles = []
         pfiles, yfiles = get_final_data_list(args.prom_path, args.ypath,
-                    nonredundant_ids, args.storage)
+                    nonredundant_ids, args.storage, args.add_interactions)
         output_fpath = os.path.join(home_dir, "results", "bic_aic_l1_results.csv")
         hyperparameter_tuning(pfiles, yfiles, nonredundant_ids, output_fpath)
-        fit_final_exact_quad(pfiles, yfiles, output_fpath)
+    
+    elif args.exp_type == "l1":
+        #Fit an exact quadratic using l1 regularization.
+        xfiles = []
+        pfiles, yfiles = get_final_data_list(args.prom_path, args.ypath,
+                    nonredundant_ids, args.storage, key_motifs_only = True)
+        output_fpath = os.path.join(home_dir, "results")
+        l1_testing(pfiles, yfiles, nonredundant_ids, output_fpath)
+    
+    elif args.exp_type == "l2":
+        #Fit an exact quadratic using l2 regularization.
+        xfiles = []
+        pfiles, yfiles = get_final_data_list(args.prom_path, args.ypath,
+                    nonredundant_ids, args.storage, key_motifs_only = True)
+        output_fpath = os.path.join(home_dir, "results")
+        l2_testing(pfiles, yfiles, nonredundant_ids, output_fpath)
 
 
     elif args.exp_type == "final":
@@ -94,10 +111,19 @@ if __name__ == "__main__":
     elif args.exp_type == "40vsrest":
         xfiles = []
         pfiles, yfiles = get_final_data_list(args.prom_path, args.ypath,
-                    nonredundant_ids, args.storage)
+                    nonredundant_ids, args.storage, args.add_interactions)
         output_fpath = os.path.join(home_dir, "results",
                                     "40vs_rest_cell_line_results.csv")
         run_traintest_split(pfiles, yfiles, nonredundant_ids, args.prom_path,
+                            output_fpath)
+    
+    elif args.exp_type == "40vsrest_interact":
+        xfiles = []
+        pfiles, yfiles = get_final_data_list(args.prom_path, args.ypath,
+                    nonredundant_ids, args.storage, args.add_interactions)
+        output_fpath = os.path.join(home_dir, "results",
+                                    "interact_linfit.csv")
+        interact_linfit(pfiles, yfiles, nonredundant_ids, args.prom_path,
                             output_fpath)
 
     cleanup_storage(xfiles, pfiles, yfiles)

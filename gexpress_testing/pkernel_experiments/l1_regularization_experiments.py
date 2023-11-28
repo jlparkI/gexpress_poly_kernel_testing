@@ -84,9 +84,23 @@ def hyperparameter_tuning(pfiles, yfiles, nonredundant_ids, output_file):
     then tests on the rest, using promoters only."""
     tt_split = get_tt_split([], pfiles, yfiles, nonredundant_ids)
     with open(output_file, "a+", encoding="utf-8") as fhandle:
-        for hparam in [np.array([1.5]), np.array([2]),
-                       np.array([-1])]:
+        for hparam in [np.array([2.]), np.array([-1.]), np.array([0.]), np.array([1.])]:
             fit_and_calc_bic(tt_split, fhandle, hparam, "promoters")
+
+def l1_testing(pfiles, yfiles, nonredundant_ids, output_path):
+    """Fits linear and approximated quadratic to 40 cell lines,
+    then tests on the rest, using promoters only."""
+    print(f"Now running the l1 test...", flush=True)
+    tt_split = get_tt_split([], pfiles, yfiles, nonredundant_ids)
+    fit_l1_test(tt_split, output_path, np.array([2.]), "promoters")
+
+
+def l2_testing(pfiles, yfiles, nonredundant_ids, output_path):
+    """Fits linear and approximated quadratic to 40 cell lines,
+    then tests on the rest, using promoters only."""
+    print(f"Now running the l2 test...", flush=True)
+    tt_split = get_tt_split([], pfiles, yfiles, nonredundant_ids)
+    fit_l2_test(tt_split, output_path, np.array([2.]), "promoters")
 
 
 def fit_and_calc_bic(tt_split, fhandle, preset_hyperparams,
@@ -124,13 +138,14 @@ def fit_and_calc_bic(tt_split, fhandle, preset_hyperparams,
     train_dset = build_offline_np_dataset(trainx, trainy,
                         chunk_size=250, skip_safety_checks=True)
 
-    model = ExactQuadratic(device = "gpu", num_threads = 10)
+    model = ExactQuadratic(device = "gpu", num_threads = 10, regularization = "l1")
     model.initialize(train_dset)
     hparams = preset_hyperparams.copy()
 
-    model.fit(train_dset, regularization="l1",
-            max_iter=1000, mode = "lbfgs",
-            preset_hyperparams = hparams)
+    model.fit(train_dset,
+            max_iter=3000, mode = "ista",
+            preset_hyperparams = hparams,
+            tol=1e-4)
     bic, aic = eval_bic_aic(model, trainx, trainy)
     train_r = eval_batch(model, trainx, trainy)
     valid_r = eval_batch(model, validx, validy)
@@ -139,16 +154,20 @@ def fit_and_calc_bic(tt_split, fhandle, preset_hyperparams,
     print(f"Model: ExactQuadratic, Hyperparams: {hparams}", flush=True)
     print(f"train: {train_r}, valid: {valid_r}", flush=True)
 
+    model.device = "cpu"
+
+    n_nonzero = np.sum( (np.abs(model.weights) > 1e-10) )
+
     fhandle.write(f"L1 ExactQuadratic,{data_type},"
-                f"{train_r},{valid_r},{hparams},{bic},{aic}\n")
+                f"{train_r},{valid_r},{hparams},{bic},{aic},{n_nonzero}\n")
     fhandle.flush()
     print(time.time() - st)
 
 
 
-def fit_final_model(xfiles, yfiles, output_path, preset_hyperparams):
+def fit_l1_test(tt_split, output_path, preset_hyperparams, data_type="promoters"):
     """Fits the ExactQuadratic model with L1 regularization to the full
-    promoter only dataset.
+    promoter only dataset and saves the weights etc. to file.
 
     Args:
         xfiles (list): A list of promoter feature files.
@@ -159,14 +178,98 @@ def fit_final_model(xfiles, yfiles, output_path, preset_hyperparams):
             hyperparameters from a previous tuning run are
             used to fit the final model.
     """
-    train_dset = build_offline_np_dataset(xfiles, yfiles,
-                        chunk_size=500, skip_safety_checks=True)
+    data_key = "x"
+    if data_type == "promoters":
+        data_key = "p"
+    trainy, trainx = [], []
+    validy, validx = [], []
 
-    model = ExactQuadratic(device = "cpu", num_threads = 5)
+    for nonred_id in tt_split["train_ids"]:
+        trainx += tt_split["train_ids"][nonred_id][data_key]
+        trainy += tt_split["train_ids"][nonred_id]["y"]
+
+    for nonred_id in tt_split["valid_ids"]:
+        validx += tt_split["valid_ids"][nonred_id][data_key]
+        validy += tt_split["valid_ids"][nonred_id]["y"]
+   
+    train_dset = build_offline_np_dataset(trainx, trainy,
+                        chunk_size=250, skip_safety_checks=True)
+
+
+    model = ExactQuadratic(device = "gpu", num_threads = 10, regularization = "l1")
+    model.initialize(train_dset)
     hparams = preset_hyperparams.copy()
 
-    model.fit(train_dset, regularization="l1",
-            max_iter=1000, mode = "lbfgs",
-            preset_hyperparams = hparams)
+    model.fit(train_dset,
+            max_iter=6000, mode = "ista",
+            preset_hyperparams = hparams,
+            tol=1e-4)
+    train_r = eval_batch(model, trainx, trainy)
+    valid_r = eval_batch(model, validx, validy)
+
+    hparams = "_".join([str(z) for z in model.get_hyperparams().tolist()])
+    print(f"Model: ExactQuadratic, Hyperparams: {hparams}", flush=True)
+    print(f"train: {train_r}, valid: {valid_r}", flush=True)
+
+    model.device = "cpu"
     with open(os.path.join(output_path, "l1_exact_quad.pk"), "wb") as fhandle:
-        pickle.dump(model, fhandle)
+        output_dict = {"train_r":train_r, "valid_r":valid_r,
+                       "weights":model.weights, "hparam":hparams}
+        pickle.dump(output_dict, fhandle)
+
+
+def fit_l2_test(tt_split, output_path, preset_hyperparams, data_type="promoters"):
+    """Fits the ExactQuadratic model with L2 regularization to the full
+    promoter only dataset and saves the weights etc. to file.
+
+    Args:
+        xfiles (list): A list of promoter feature files.
+        yfiles (list): A list of expression value files.
+        output_path (str): The path where the final model should
+            be saved.
+        preset_hyperparams: A numpy array. These "recycled"
+            hyperparameters from a previous tuning run are
+            used to fit the final model.
+    """
+    data_key = "x"
+    if data_type == "promoters":
+        data_key = "p"
+    trainy, trainx = [], []
+    validy, validx = [], []
+
+    for nonred_id in tt_split["train_ids"]:
+        trainx += tt_split["train_ids"][nonred_id][data_key]
+        trainy += tt_split["train_ids"][nonred_id]["y"]
+
+    for nonred_id in tt_split["valid_ids"]:
+        validx += tt_split["valid_ids"][nonred_id][data_key]
+        validy += tt_split["valid_ids"][nonred_id]["y"]
+   
+    train_dset = build_offline_np_dataset(trainx, trainy,
+                        chunk_size=250, skip_safety_checks=True)
+
+
+    model = ExactQuadratic(device = "gpu", num_threads = 10, regularization = "l2")
+    model.initialize(train_dset)
+    hparams = preset_hyperparams.copy()
+
+    preconditioner, ratio = model.build_preconditioner(train_dset,
+                       max_rank = 4000, method = 'srht',
+                        preset_hyperparams = hparams)
+    print(f"Ratio: {ratio}", flush=True)
+    model.fit(train_dset, preconditioner = preconditioner,
+                 max_iter=1000, mode = "cg",
+                preset_hyperparams = hparams)
+
+    train_r = eval_batch(model, trainx, trainy)
+    valid_r = eval_batch(model, validx, validy)
+
+    hparams = "_".join([str(z) for z in model.get_hyperparams().tolist()])
+    print(f"Model: ExactQuadratic, Hyperparams: {hparams}", flush=True)
+    print(f"train: {train_r}, valid: {valid_r}", flush=True)
+
+    model.device = "cpu"
+    with open(os.path.join(output_path, "l2_exact_quad.pk"), "wb") as fhandle:
+        output_dict = {"train_r":train_r, "valid_r":valid_r,
+                       "weights":model.weights, "hparam":hparams}
+        pickle.dump(output_dict, fhandle)

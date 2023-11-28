@@ -8,7 +8,7 @@ import pickle
 import numpy as np
 from scipy.stats import pearsonr
 from xGPR import xGPRegression as xGPReg
-from xGPR import build_offline_fixed_vector_dataset, build_online_dataset
+from xGPR import build_regression_dataset
 from ..utilities.utilities import get_tt_split
 
 
@@ -37,7 +37,7 @@ def single_file_evaluation(model, tt_split, data_key, fhandle,
 
         all_pearsonr = pearsonr(np.concatenate(all_preds),
                                       np.concatenate(all_y))[0]
-        fhandle.write(f"ALL_LINES,{data_group},{all_pearsonr},"
+        fhandle.write(f"ALL_LINES_INTERACTIONS,{data_group},{all_pearsonr},"
                         f"{model_type},{data_type},{data_path}\n")
         fhandle.flush()
 
@@ -91,6 +91,14 @@ def run_traintest_split(pfiles, yfiles, nonredundant_ids, data_path,
         prom_h = fit_evaluate_model(tt_split, 32768, fhandle, data_path,
                             "Poly", None, "promoters")
 
+def interact_linfit(pfiles, yfiles, nonredundant_ids, data_path,
+                        output_file):
+    """Fits linear to 40 cell lines, using selected interaction terms,
+    then tests on the remainder."""
+    tt_split = get_tt_split([], pfiles, yfiles, nonredundant_ids)
+    with open(output_file, "a+", encoding="utf-8") as fhandle:
+        _ = fit_evaluate_model(tt_split, 2048, fhandle, data_path,
+                            "Linear", None, "promoters")
 
 
 def fit_evaluate_model(tt_split, rffs, fhandle, data_path,
@@ -127,14 +135,13 @@ def fit_evaluate_model(tt_split, rffs, fhandle, data_path,
         trainx += tt_split["train_ids"][nonred_id][data_key]
         trainy += tt_split["train_ids"][nonred_id]["y"]
 
-    train_dset = build_offline_fixed_vector_dataset(trainx, trainy,
+    train_dset = build_regression_dataset(trainx, trainy,
                         chunk_size=5000)
 
     # Variance rffs does not matter and is not used. For a linear
     # model the # rffs is ignored. num_threads is ignored if fitting
     # on GPU.
-    model = xGPReg(training_rffs = 8192, fitting_rffs = rffs,
-                          variance_rffs = 64, kernel_choice = model_type,
+    model = xGPReg(num_rffs = 8192, variance_rffs = 64, kernel_choice = model_type,
                           kernel_specific_params={"intercept":True,
                                            "polydegree":2},
                           verbose = True, device = "gpu",
@@ -144,24 +151,28 @@ def fit_evaluate_model(tt_split, rffs, fhandle, data_path,
         xdim = np.load(trainx[0]).shape[1]
         if xdim < 512:
             pre_rank = 256
-        bounds = np.array([[-6.907,2], [-0.001,0.001]])
-        _, _, nmll, _ = model.tune_hyperparams_crude_bayes(train_dset, bounds=bounds)
-        hparams = model.get_hyperparams()
+        bounds = np.array([[-5,4]])
+        if preset_hyperparams is None:
+            _, _, nmll = model.tune_hyperparams_lbfgs(train_dset, bounds=bounds)
+            hparams = model.get_hyperparams()
+        else:
+            hparams = preset_hyperparams
 
     else:
         pre_rank, pre_method = 4000, "srht_2"
         if preset_hyperparams is None:
-            bounds = np.array([[-6.907,2], [-0.001,0.001]])
-            _, _, nmll, _ = model.tune_hyperparams_crude_bayes(train_dset, bounds=bounds)
+            bounds = np.array([[-6.907,2]])
+            _, _, nmll = model.tune_hyperparams_crude(train_dset, bounds=bounds)
             hparams = model.get_hyperparams()
         else:
             nmll = "NA"
             hparams = preset_hyperparams.copy()
 
     print(f"Tuning complete. Hparams: {hparams}", flush=True)
+    model.num_rffs = rffs
+    model.set_hyperparams(hparams, train_dset)
     preconditioner, ratio = model.build_preconditioner(train_dset,
-                       max_rank = pre_rank, method = pre_method,
-                        preset_hyperparams = hparams)
+                       max_rank = pre_rank, method = pre_method)
     print(f"Ratio: {ratio}", flush=True)
     model.fit(train_dset, preconditioner = preconditioner,
                  mode = "cg", tol = 1e-6, suppress_var=True)
@@ -211,11 +222,7 @@ def fit_evaluate_eq_model(cv_split, fhandle, preset_hyperparams = None,
     if online_dataset:
         trainx = np.vstack([np.load(x) for x in trainx]).astype(np.float64)
         trainy = np.concatenate([np.load(y) for y in trainy])
-        train_dset = build_online_dataset(trainx, trainy, chunk_size=250)
-
-    else:
-        train_dset = build_offline_fixed_vector_dataset(trainx, trainy,
-                        chunk_size=250, skip_safety_checks=True)
+    train_dset = build_regression_dataset(trainx, trainy, chunk_size=250)
 
     # Variance rffs does not matter and is not used. For a linear
     # model the # rffs is ignored. num_threads is ignored if fitting

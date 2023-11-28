@@ -22,6 +22,7 @@ python run_key_experiments.py --prom_path /stg3/data1/sam/enhancer_prediction/fi
 	--en_path /stg3/data3/Jonathan/poly_kernel_motifs/motif_count_matrices_enh_3\
 	--nonred_fpath /stg3/data3/Jonathan/poly_kernel_motifs/EpiMapID_Name_nonDup.txt \
 	--storage /scratch/dstore_2 \
-	--exp_type 40vsrest
+	--exp_type 40vsrest \
+        --add_interactions
 
 rm -rf /scratch/dstore_2
