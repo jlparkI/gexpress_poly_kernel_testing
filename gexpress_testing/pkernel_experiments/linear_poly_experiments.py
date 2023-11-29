@@ -1,19 +1,16 @@
 """Trains a Bayesian linear model and a poly kernel
-model on the data and checks training set performance,
+model on the data and checks training / validation set performance,
 after first filtering the input datasets to ensure
 only non-redundant files are included."""
 import time
-import os
-import pickle
 import numpy as np
 from scipy.stats import pearsonr
 from xGPR import xGPRegression as xGPReg
 from xGPR import build_regression_dataset
-from ..utilities.utilities import get_tt_split
 
 
-def single_file_evaluation(model, tt_split, data_key, fhandle,
-                           model_type, data_type, data_path):
+def single_file_evaluation(model, tt_split:dict, data_key:str, fhandle,
+                    model_type:str, data_type:str, split_description:str):
     """Evaluates the pearson r separately for each nonredundant id in
     the validation set."""
     for data_group in ["train", "valid"]:
@@ -33,12 +30,12 @@ def single_file_evaluation(model, tt_split, data_key, fhandle,
             batch_pearsonr = pearsonr(np.concatenate(batch_preds),
                                       np.concatenate(batch_y))[0]
             fhandle.write(f"{idnum},{data_group},{batch_pearsonr},"
-                        f"{model_type},{data_type},{data_path}\n")
+                        f"{model_type},{data_type},{split_description}\n")
 
         all_pearsonr = pearsonr(np.concatenate(all_preds),
                                       np.concatenate(all_y))[0]
         fhandle.write(f"ALL_LINES_INTERACTIONS,{data_group},{all_pearsonr},"
-                        f"{model_type},{data_type},{data_path}\n")
+                        f"{model_type},{data_type},{split_description}\n")
         fhandle.flush()
 
 
@@ -69,41 +66,19 @@ def eval_array(model, xdata, ydata, scaler = None):
     return pearsonr(preds, ydata)[0]
 
 
-def fit_final_exact_quad(xfiles, yfiles, output_path):
-    """Fits the final exact quadratic model to the full dataset.
-    This model can be used to extract feature / interaction
-    term importance."""
-    # The hard-coded hyperparameters here were obtained from
-    # tuning using the approximate kernel. TODO: Move these
-    # to a constants file.
-    fit_final_model(xfiles, yfiles, output_path,
-                    np.array([-0.2256119, 0]))
-
-
-def run_traintest_split(pfiles, yfiles, nonredundant_ids, data_path,
-                        output_file):
+def run_traintest_split(tt_split:dict, split_description:str,
+                        output_file:str, data_type:str):
     """Fits linear and approximated quadratic to 40 cell lines,
-    then tests on the rest, using promoters only."""
-    tt_split = get_tt_split([], pfiles, yfiles, nonredundant_ids)
+    then tests on the rest."""
     with open(output_file, "a+", encoding="utf-8") as fhandle:
-        _ = fit_evaluate_model(tt_split, 2048, fhandle, data_path,
-                            "Linear", None, "promoters")
-        prom_h = fit_evaluate_model(tt_split, 32768, fhandle, data_path,
-                            "Poly", None, "promoters")
-
-def interact_linfit(pfiles, yfiles, nonredundant_ids, data_path,
-                        output_file):
-    """Fits linear to 40 cell lines, using selected interaction terms,
-    then tests on the remainder."""
-    tt_split = get_tt_split([], pfiles, yfiles, nonredundant_ids)
-    with open(output_file, "a+", encoding="utf-8") as fhandle:
-        _ = fit_evaluate_model(tt_split, 2048, fhandle, data_path,
-                            "Linear", None, "promoters")
+        fit_evaluate_model(tt_split, 2048, fhandle, split_description,
+                            "Linear", data_type)
+        fit_evaluate_model(tt_split, 32768, fhandle, split_description,
+                            "Poly", data_type)
 
 
-def fit_evaluate_model(tt_split, rffs, fhandle, data_path,
-                model_type = "Linear", preset_hyperparams = None,
-                data_type = "promoters"):
+def fit_evaluate_model(tt_split:dict, rffs:int, fhandle, split_description:str,
+                model_type:str = "Linear", data_type:str = "promoters"):
     """Evaluates a linear model on the split supplied by
     caller.
 
@@ -115,15 +90,7 @@ def fit_evaluate_model(tt_split, rffs, fhandle, data_path,
             the training and validation sets should be written.
         model_type (str): One of 'Linear', 'Poly'. If 'poly',
             fit a degree-2 polynomial.
-        preset_hyperparams: Either None or a numpy array. If a
-            numpy array, these "recycled" hyperparameters from
-            a previous tuning run are used; otherwise, hyperparameters
-            are tuned.
         data_type (str): One of 'promoters', 'merged'.
-
-    Returns:
-        hparams (np.ndarray): The hyperparameters as a numpy
-            array so that caller can recycle them if desired.
     """
     st = time.time()
     data_key = "x"
@@ -136,162 +103,35 @@ def fit_evaluate_model(tt_split, rffs, fhandle, data_path,
         trainy += tt_split["train_ids"][nonred_id]["y"]
 
     train_dset = build_regression_dataset(trainx, trainy,
-                        chunk_size=5000)
+                        chunk_size=2000)
 
     # Variance rffs does not matter and is not used. For a linear
     # model the # rffs is ignored. num_threads is ignored if fitting
     # on GPU.
     model = xGPReg(num_rffs = 8192, variance_rffs = 64, kernel_choice = model_type,
-                          kernel_specific_params={"intercept":True,
-                                           "polydegree":2},
+                          kernel_settings={"intercept":True, "polydegree":2},
                           verbose = True, device = "gpu",
                           num_threads = 10)
+
+    hparams, _, nmll = model.tune_hyperparams_crude(train_dset)
+    hparams = "_".join([str(z) for z in hparams.tolist()])
     if model_type == "Linear":
         pre_rank, pre_method = 512, "srht"
         xdim = np.load(trainx[0]).shape[1]
         if xdim < 512:
             pre_rank = 256
-        bounds = np.array([[-5,4]])
-        if preset_hyperparams is None:
-            _, _, nmll = model.tune_hyperparams_lbfgs(train_dset, bounds=bounds)
-            hparams = model.get_hyperparams()
-        else:
-            hparams = preset_hyperparams
-
     else:
-        pre_rank, pre_method = 4000, "srht_2"
-        if preset_hyperparams is None:
-            bounds = np.array([[-6.907,2]])
-            _, _, nmll = model.tune_hyperparams_crude(train_dset, bounds=bounds)
-            hparams = model.get_hyperparams()
-        else:
-            nmll = "NA"
-            hparams = preset_hyperparams.copy()
+        pre_rank, pre_method = 4000, "srht"
 
-    print(f"Tuning complete. Hparams: {hparams}", flush=True)
+    print(f"Tuning complete, nmll {nmll}, hparams: {hparams}", flush=True)
     model.num_rffs = rffs
-    model.set_hyperparams(hparams, train_dset)
     preconditioner, ratio = model.build_preconditioner(train_dset,
                        max_rank = pre_rank, method = pre_method)
     print(f"Ratio: {ratio}", flush=True)
     model.fit(train_dset, preconditioner = preconditioner,
                  mode = "cg", tol = 1e-6, suppress_var=True)
 
-    hparams = "_".join([str(z) for z in model.get_hyperparams().tolist()])
-    print(f"Model: {model_type}, Hyperparams: {hparams}", flush=True)
-
     single_file_evaluation(model, tt_split, data_key, fhandle,
-                           model_type, data_type, data_path)
+                           model_type, data_type, split_description)
 
-    print(time.time() - st)
-    return model.get_hyperparams()
-
-
-
-def fit_evaluate_eq_model(cv_split, fhandle, preset_hyperparams = None,
-                          data_type = "promoters", online_dataset = True):
-    """Evaluates the ExactQuadratic kernel on the cv split passed
-    by caller.
-
-    Args:
-        cv_split (dict): A dict containing a list of the training
-            and validation files.
-        fhandle: A handle to the output file where results on
-            the training and validation sets should be written.
-        preset_hyperparams: Either None or a numpy array. If a
-            numpy array, these "recycled" hyperparameters from
-            a previous tuning run are used; otherwise, hyperparameters
-            are tuned.
-        data_type (str): One of 'promoters', 'merged'.
-        online_dataset (bool): If False, build an offline dataset
-            so that data is only loaded one chunk at a time.
-
-    Returns:
-        hparams (np.ndarray): The hyperparameters as a numpy
-            array so that caller can recycle them if desired.
-    """
-    st = time.time()
-    trainy, validy = cv_split["train_y"], cv_split["valid_y"]
-    if data_type == "promoters":
-        trainx, validx = cv_split["train_p"], cv_split["valid_p"]
-    else:
-        trainx, validx = cv_split["train_x"], cv_split["valid_x"]
-
-    #Loading all of the training data into memory is...not great --
-    #just doing this as a temporary hack -- will fix this later.
-    if online_dataset:
-        trainx = np.vstack([np.load(x) for x in trainx]).astype(np.float64)
-        trainy = np.concatenate([np.load(y) for y in trainy])
-    train_dset = build_regression_dataset(trainx, trainy, chunk_size=250)
-
-    # Variance rffs does not matter and is not used. For a linear
-    # model the # rffs is ignored. num_threads is ignored if fitting
-    # on GPU.
-    model = xGPReg(training_rffs = 8192, fitting_rffs = 8192,
-                          variance_rffs = 512, kernel_choice = "ExactQuadratic",
-                          kernel_specific_params={"intercept":True,
-                                           "polydegree":2},
-                          verbose = True, device = "gpu",
-                          num_threads = 10)
-    pre_rank, pre_method = 5000, "srht"
-    nmll = "NA"
-    hparams = preset_hyperparams.copy()
-
-    preconditioner, ratio = model.build_preconditioner(train_dset,
-                       max_rank = pre_rank, method = pre_method,
-                        preset_hyperparams = hparams)
-    print(f"Ratio: {ratio}", flush=True)
-    model.fit(train_dset, preconditioner = preconditioner,
-                 max_iter=500, mode = "lbfgs",
-                preset_hyperparams = hparams)
-    if online_dataset:
-        train_r = eval_array(model, trainx, trainy)
-    else:
-        train_r = eval_batch(model, trainx, trainy)
-    valid_r = eval_batch(model, validx, validy)
-
-    hparams = "_".join([str(z) for z in model.get_hyperparams().tolist()])
-    print(f"Model: ExactQuadratic, Hyperparams: {hparams}", flush=True)
-    print(f"train: {train_r}, valid: {valid_r}", flush=True)
-
-    fhandle.write(f"ExactQuadratic,{model.fitting_rffs},{data_type},"
-                f"{train_r},{valid_r},{hparams},{nmll}\n")
-    fhandle.flush()
-    print(time.time() - st)
-    return model.get_hyperparams()
-
-
-
-def fit_final_model(xfiles, yfiles, output_path, preset_hyperparams):
-    """Fits the ExactQuadratic model to the full promoter only dataset.
-
-    Args:
-        xfiles (list): A list of promoter feature files.
-        yfiles (list): A list of expression value files.
-        output_path (str): The path where the final model should
-            be saved.
-        preset_hyperparams: A numpy array. These "recycled"
-            hyperparameters from a previous tuning run are
-            used to fit the final model.
-    """
-    train_dset = build_offline_fixed_vector_dataset(xfiles, yfiles,
-                        chunk_size=500, skip_safety_checks=True)
-
-    model = xGPReg(training_rffs = 8192, fitting_rffs = 8192,
-                          variance_rffs = 4096, kernel_choice = "ExactQuadratic",
-                          kernel_specific_params={"intercept":True,
-                                           "polydegree":2},
-                          verbose = True, device = "gpu",
-                          num_threads = 10)
-    pre_rank, pre_method = 5000, "srht"
-    hparams = preset_hyperparams.copy()
-
-    preconditioner, ratio = model.build_preconditioner(train_dset,
-                       max_rank = pre_rank, method = pre_method,
-                        preset_hyperparams = hparams)
-    print(f"Ratio: {ratio}", flush=True)
-    model.fit(train_dset, preconditioner = preconditioner,
-                 max_iter=1000, mode = "lbfgs",
-                preset_hyperparams = hparams)
-    with open(os.path.join(output_path, "exact_quad_overlapped_pro.pk"), "wb") as fhandle:
-        pickle.dump(model, fhandle)
+    print(time.time() - st, flush=True)

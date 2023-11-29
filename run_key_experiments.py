@@ -4,19 +4,14 @@ import os
 import sys
 import argparse
 
-#from gexpress_testing.pkernel_experiments.linear_poly_experiments import fit_final_exact_quad
 from gexpress_testing.pkernel_experiments.linear_poly_experiments import run_traintest_split
-from gexpress_testing.utilities.utilities import filter_data, cleanup_storage, get_final_data_list
-from gexpress_testing.pkernel_experiments.l1_regularization_experiments import hyperparameter_tuning, l1_testing, l2_testing
-from gexpress_testing.pkernel_experiments.linear_poly_experiments import interact_linfit
+from gexpress_testing.utilities.utilities import filter_data, get_tt_split, cleanup_storage
 
 
 def gen_arg_parser():
     """Allows for command line arguments to this file."""
     arg_parser = argparse.ArgumentParser(description="Use this command line app "
             "to run key experiments: ")
-    arg_parser.add_argument("--add_interactions", action="store_true", help="If True, "
-                            "add selected promoter-promoter interaction terms.")
     arg_parser.add_argument("--prom_path", type=str, help="A filepath to the "
             "directory containing the promoter motif counts.")
     arg_parser.add_argument("--ypath", type=str, help="A filepath to the "
@@ -31,12 +26,9 @@ def gen_arg_parser():
             "and promoter counts) created while the algorithm is running "
             "can be stored.")
     arg_parser.add_argument("--exp_type", type=str,
-                            help="Argument should be one of 40vsrest, "
-                            "final, cv, bic, l1, 40vsrest_interact. If 40vsrest, the model is fitted "
-                            "to 40 randomly selected cell lines and tested "
-                            "on the remainder. If final, the final exact "
-                            "quadratic model is trained. If cv, a 5x cv is "
-                            "performed on the full dataset.")
+                            help="Argument should be one of 40vsrest_split . "
+                            "If 40vsrest_split, it is fitted to 40 cell lines "
+                            "then tested on the remainder up to 5x.")
     return arg_parser
 
 
@@ -56,74 +48,24 @@ if __name__ == "__main__":
         raise ValueError("You supplied a nonredundant file that does "
                          "not exist.")
 
-    if args.exp_type == "bic":
-        #For calculating BIC, we fit an exact quadratic using
-        #L1 regularization and calculate BIC / AIC using a simple
-        #gridsearch across the available hyperparameter.
-        xfiles = []
-        pfiles, yfiles = get_final_data_list(args.prom_path, args.ypath,
-                    nonredundant_ids, args.storage, args.add_interactions)
-        output_fpath = os.path.join(home_dir, "results", "bic_aic_l1_results.csv")
-        hyperparameter_tuning(pfiles, yfiles, nonredundant_ids, output_fpath)
-    
-    elif args.exp_type == "l1":
-        #Fit an exact quadratic using l1 regularization.
-        xfiles = []
-        pfiles, yfiles = get_final_data_list(args.prom_path, args.ypath,
-                    nonredundant_ids, args.storage, key_motifs_only = True)
-        output_fpath = os.path.join(home_dir, "results")
-        l1_testing(pfiles, yfiles, nonredundant_ids, output_fpath)
-    
-    elif args.exp_type == "l2":
-        #Fit an exact quadratic using l2 regularization.
-        xfiles = []
-        pfiles, yfiles = get_final_data_list(args.prom_path, args.ypath,
-                    nonredundant_ids, args.storage, key_motifs_only = True)
-        output_fpath = os.path.join(home_dir, "results")
-        l2_testing(pfiles, yfiles, nonredundant_ids, output_fpath)
 
+    pfiles, xfiles, yfiles = filter_data(args.prom_path, args.ypath,
+                args.en_path, nonredundant_ids, args.storage,
+                chunk_size = 250)
 
-    elif args.exp_type == "final":
-        # For fitting the final model, we create one set of files in
-        # the storage folder -- the promoter counts saved as 32 bit
-        # floats, divided into small chunks for ease of use.
-        print("FINAL FIT", flush=True)
-        xfiles = []
-        pfiles, yfiles = get_final_data_list(args.prom_path, args.ypath,
-                    nonredundant_ids, args.storage)
-        output_fpath = os.path.join(home_dir, "results")
-        fit_final_exact_quad(pfiles, yfiles, output_fpath)
+    # There are 116 cell lines so we set up three splits with different
+    # offsets.
+    tt_splits = [get_tt_split(xfiles, pfiles, yfiles, nonredundant_ids,
+                offset = offset) for offset in [0,20,40,60,76]]
+    tset_descriptions = [f"{i}_to_{i+40}_fpath_{args.prom_path}"
+                         for i in [0,20,40,60,76]]
 
-
-    elif args.exp_type == "cv":
-        # We create two sets of files in the storage folder -- one that uses
-        # merged enhancer / promoter counts, and one that uses promoters
-        # only -- using the nonredundant cell lines only. This way we
-        # can see how model performance changes if providing enhancers
-        # in addition to promoters. Note that to save space in
-        # the storage folder and speed up fitting, the motif counts are
-        # saved as 32-bit floats
-        xfiles, pfiles, yfiles = filter_data(args.prom_path, args.ypath,
-                    args.en_path, nonredundant_ids, args.storage)
-        output_fpath = os.path.join(home_dir, "results", "polyk_tests.csv")
-        #run_all_cvs(xfiles, pfiles, yfiles, output_fpath)
-
-    elif args.exp_type == "40vsrest":
-        xfiles = []
-        pfiles, yfiles = get_final_data_list(args.prom_path, args.ypath,
-                    nonredundant_ids, args.storage, args.add_interactions)
+    if args.exp_type == "40vsrest":
         output_fpath = os.path.join(home_dir, "results",
-                                    "40vs_rest_cell_line_results.csv")
-        run_traintest_split(pfiles, yfiles, nonredundant_ids, args.prom_path,
-                            output_fpath)
-    
-    elif args.exp_type == "40vsrest_interact":
-        xfiles = []
-        pfiles, yfiles = get_final_data_list(args.prom_path, args.ypath,
-                    nonredundant_ids, args.storage, args.add_interactions)
-        output_fpath = os.path.join(home_dir, "results",
-                                    "interact_linfit.csv")
-        interact_linfit(pfiles, yfiles, nonredundant_ids, args.prom_path,
-                            output_fpath)
+                                    "approx_splits_test_results.csv")
+        for tt_split, split_description in zip(tt_splits,
+                                               tset_descriptions):
+            run_traintest_split(tt_split, split_description,
+                            output_fpath, "promoters")
 
     cleanup_storage(xfiles, pfiles, yfiles)
