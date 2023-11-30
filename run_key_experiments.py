@@ -4,7 +4,7 @@ import os
 import sys
 import argparse
 
-from gexpress_testing.pkernel_experiments.linear_poly_experiments import run_traintest_split
+from gexpress_testing.pkernel_experiments.linear_poly_experiments import run_traintest_split, run_traintest_exact_quad
 from gexpress_testing.utilities.utilities import filter_data, get_tt_split, cleanup_storage
 
 
@@ -26,9 +26,11 @@ def gen_arg_parser():
             "and promoter counts) created while the algorithm is running "
             "can be stored.")
     arg_parser.add_argument("--exp_type", type=str,
-                            help="Argument should be one of 40vsrest_split . "
+                            help="Argument should be one of 40vsrest_split, 40vsrest_exact . "
                             "If 40vsrest_split, it is fitted to 40 cell lines "
-                            "then tested on the remainder up to 5x.")
+                            "then tested on the remainder up to 5x. If 40vsrest_exact, "
+                            "the same experiment is performed but using the exact quadratic, "
+                            "and weights are saved to disk.")
     return arg_parser
 
 
@@ -67,5 +69,15 @@ if __name__ == "__main__":
                                                tset_descriptions):
             run_traintest_split(tt_split, split_description,
                             output_fpath, "promoters")
+
+    if args.exp_type == "40vsrest_exact":
+        output_fpath = os.path.join(home_dir, "results",
+                                    "exact_splits_test_results.csv")
+        weight_save_dir = os.path.join(home_dir, "results")
+        for tt_split, split_description in zip(tt_splits,
+                                               tset_descriptions):
+            run_traintest_exact_quad(tt_split, split_description,
+                        output_fpath, "promoters", weight_save_dir)
+
 
     cleanup_storage(xfiles, pfiles, yfiles)
