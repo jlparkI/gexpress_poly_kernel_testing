@@ -180,8 +180,6 @@ def fit_evaluate_eq_model(tt_split:dict, fhandle, split_description:str,
         trainx += tt_split["train_ids"][nonred_id][data_key]
         trainy += tt_split["train_ids"][nonred_id]["y"]
 
-    train_dset = build_regression_dataset(trainx, trainy,
-                        chunk_size=2000)
     train_dset = build_offline_np_dataset(trainx, trainy,
                         chunk_size=250, skip_safety_checks=True)
 
@@ -202,7 +200,7 @@ def fit_evaluate_eq_model(tt_split:dict, fhandle, split_description:str,
     print(f"Model: ExactQuadratic, Hyperparams: {hparams}", flush=True)
 
     model.device = "cpu"
-    with open(os.path.join(output_path, f"{split_description}_exact_quad.pk"), "wb") as \
+    with open(os.path.join(output_path, f"{split_description.split('_fpath_')[0]}_exact_quad.pk"), "wb") as \
             weight_handle:
         output_dict = {"weights":model.weights, "hparam":hparams}
         pickle.dump(output_dict, weight_handle)
