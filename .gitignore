@@ -5,6 +5,7 @@ __pycache__/
 
 # Results files
 *.pk
+*.npy
 
 # C extensions
 *.so
