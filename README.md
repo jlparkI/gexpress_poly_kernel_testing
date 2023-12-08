@@ -16,3 +16,9 @@ the paper.
 
 The notebook code used to select an important motif subset is under
 notebooks.
+
+Note that cupy-cuda11x was originally used -- you may need to substitute
+a different version of cupy depending on your cuda version.
+
+All experiments involving approximate polynomial kernels used xGPR version 0.2
+but later versions should give equivalent results.
