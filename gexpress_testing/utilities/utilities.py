@@ -66,6 +66,9 @@ def filter_data(prom_path:str, ypath:str, en_path:str, nonredundant_ids:list,
 
     print("Now retrieving and sorting files...", flush=True)
 
+    if promoter_columns is not None:
+        print(f"Using {promoter_columns.shape[0]} promoter columns.", flush=True)
+
     for nonred_id in nonredundant_ids:
         pfile = os.path.join(prom_path, f"{nonred_id}_count_matrix_pro.npy")
         yfile = os.path.join(ypath, f"{nonred_id}.y.npy")
