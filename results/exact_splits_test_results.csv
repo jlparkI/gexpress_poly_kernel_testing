@@ -1,3 +1,4 @@
+cell_line,train_or_test,pearson_r,kernel,feature_set,data_description
 BSS00004,train,0.9152510485224408,EXACT_QUADRATIC,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00007,train,0.8879905714180722,EXACT_QUADRATIC,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00043,train,0.8341956019266226,EXACT_QUADRATIC,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped

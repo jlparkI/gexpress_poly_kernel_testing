@@ -1,3 +1,4 @@
+cell_line,train_or_test,pearson_r,kernel,feature_set,data_description
 BSS00004,train,0.6719084098199175,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00007,train,0.6203903777963596,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00043,train,0.41989055918249596,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
