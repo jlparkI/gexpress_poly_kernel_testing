@@ -12,7 +12,7 @@ python run_key_experiments.py
 
 If run without any arguments, a list of options and required arguments
 will be displayed. Use this CLI to reproduce the main experiments from
-the paper.
+the paper. The shell scripts under shell_scripts provide examples.
 
 The notebook code used to select an important motif subset is under
 notebooks.
