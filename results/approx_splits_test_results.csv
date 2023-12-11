@@ -1,3 +1,4 @@
+cell_line,train_or_test,pearson_r,kernel,feature_set,data_description
 BSS00004,train,0.6635102516603677,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00007,train,0.6099664762161672,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00043,train,0.41551732464300145,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
@@ -38,7 +39,7 @@ BSS00439,train,0.6455337475428397,Linear,promoters,0_to_40_fpath_/stg3/data1/sam
 BSS00476,train,0.6370409714428098,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00478,train,0.5933257427096785,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00481,train,0.6364483889332146,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
-ALL_LINES_INTERACTIONS,train,0.5678901364606124,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
+ALL_LINES,train,0.5678901364606124,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00483,valid,0.5955993945254555,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00505,valid,0.5800276121779036,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00529,valid,0.6837778111763426,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
@@ -115,7 +116,7 @@ BSS01866,valid,0.5943240743479704,Linear,promoters,0_to_40_fpath_/stg3/data1/sam
 BSS01869,valid,0.5344652893133683,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01884,valid,0.5691022460773045,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01887,valid,0.5158048533302796,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
-ALL_LINES_INTERACTIONS,valid,0.5754608182903955,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
+ALL_LINES,valid,0.5754608182903955,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00004,train,0.893594714963881,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00007,train,0.8593622881186052,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00043,train,0.6942883675793865,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
@@ -156,7 +157,7 @@ BSS00439,train,0.8355642093853556,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/e
 BSS00476,train,0.8854332905190034,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00478,train,0.82610067905781,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00481,train,0.8876327198449991,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
-ALL_LINES_INTERACTIONS,train,0.8227387091176095,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
+ALL_LINES,train,0.8227387091176095,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00483,valid,0.8369104506064733,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00505,valid,0.8379627906677345,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00529,valid,0.8588061853545386,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
@@ -233,7 +234,7 @@ BSS01866,valid,0.8299749512726166,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/e
 BSS01869,valid,0.7784916688727981,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01884,valid,0.7955024602286612,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01887,valid,0.8021788902295018,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
-ALL_LINES_INTERACTIONS,valid,0.8003248638205107,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
+ALL_LINES,valid,0.8003248638205107,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00211,train,0.45007971036801975,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00214,train,0.4835093623235268,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00232,train,0.6376960858292435,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
@@ -274,7 +275,7 @@ BSS01110,train,0.5799093425880297,Linear,promoters,20_to_60_fpath_/stg3/data1/sa
 BSS01126,train,0.46225925174260063,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01136,train,0.5969896710941582,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01155,train,0.6766190420175128,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
-ALL_LINES_INTERACTIONS,train,0.5883348341440322,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
+ALL_LINES,train,0.5883348341440322,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00004,valid,0.6649176913074379,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00007,valid,0.6137720812075184,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00043,valid,0.41193217622479095,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
@@ -351,7 +352,7 @@ BSS01866,valid,0.5948320486531034,Linear,promoters,20_to_60_fpath_/stg3/data1/sa
 BSS01869,valid,0.5314086141392594,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01884,valid,0.5698460914484171,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01887,valid,0.5146268938740634,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
-ALL_LINES_INTERACTIONS,valid,0.564585945378608,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
+ALL_LINES,valid,0.564585945378608,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00211,train,0.7109583345862325,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00214,train,0.727524191908115,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00232,train,0.8336820450870425,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
@@ -392,7 +393,7 @@ BSS01110,train,0.8625961203303802,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/
 BSS01126,train,0.716814877478102,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01136,train,0.876356211954675,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01155,train,0.9091950956214999,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
-ALL_LINES_INTERACTIONS,train,0.8393730830891929,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
+ALL_LINES,train,0.8393730830891929,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00004,valid,0.8933254502385668,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00007,valid,0.8446564511232058,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00043,valid,0.6233696664685804,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
@@ -469,7 +470,7 @@ BSS01866,valid,0.8476634578353717,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/
 BSS01869,valid,0.7606860552097114,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01884,valid,0.7839502463660195,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01887,valid,0.7851601906747575,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
-ALL_LINES_INTERACTIONS,valid,0.790427857717785,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
+ALL_LINES,valid,0.790427857717785,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00483,train,0.5973999406024051,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00505,train,0.5834477248070717,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00529,train,0.6870522997733404,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
@@ -510,7 +511,7 @@ BSS01391,train,0.693338217608763,Linear,promoters,40_to_80_fpath_/stg3/data1/sam
 BSS01393,train,0.5427706099979411,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01399,train,0.4831419158058654,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01405,train,0.6135252782472538,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
-ALL_LINES_INTERACTIONS,train,0.5916680428335803,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
+ALL_LINES,train,0.5916680428335803,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00004,valid,0.6653473669098773,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00007,valid,0.6147259756447596,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00043,valid,0.41136948869313034,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
@@ -587,7 +588,7 @@ BSS01866,valid,0.5941723220722754,Linear,promoters,40_to_80_fpath_/stg3/data1/sa
 BSS01869,valid,0.5310378336182919,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01884,valid,0.5699326947938889,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01887,valid,0.5145134597913714,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
-ALL_LINES_INTERACTIONS,valid,0.5631096433594152,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
+ALL_LINES,valid,0.5631096433594152,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00483,train,0.8669931234797197,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00505,train,0.8710231968801821,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00529,train,0.8936160201102314,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
@@ -628,7 +629,7 @@ BSS01391,train,0.8520530508420379,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/
 BSS01393,train,0.8335318342723244,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01399,train,0.7356542973746985,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01405,train,0.8200919391635426,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
-ALL_LINES_INTERACTIONS,train,0.8375085636859443,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
+ALL_LINES,train,0.8375085636859443,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00004,valid,0.8960557003198302,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00007,valid,0.8443733363227985,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00043,valid,0.6235308187443453,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
@@ -705,7 +706,7 @@ BSS01866,valid,0.8395228960461163,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/
 BSS01869,valid,0.7647765859338074,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01884,valid,0.7827128399854353,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01887,valid,0.7831012320239105,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
-ALL_LINES_INTERACTIONS,valid,0.7923891912729213,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
+ALL_LINES,valid,0.7923891912729213,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01181,train,0.5332722302078259,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01190,train,0.487454891790158,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01208,train,0.6540027112665037,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
@@ -746,7 +747,7 @@ BSS01562,train,0.5850072460615634,Linear,promoters,60_to_100_fpath_/stg3/data1/s
 BSS01573,train,0.6267052474877788,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01583,train,0.6435608941291848,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01588,train,0.5023650493398738,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
-ALL_LINES_INTERACTIONS,train,0.5678679258648835,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
+ALL_LINES,train,0.5678679258648835,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00004,valid,0.6648481529179202,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00007,valid,0.6137587040477159,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00043,valid,0.4128886223661674,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
@@ -823,7 +824,7 @@ BSS01866,valid,0.5934179240339577,Linear,promoters,60_to_100_fpath_/stg3/data1/s
 BSS01869,valid,0.5318265904344979,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01884,valid,0.5705275561125617,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01887,valid,0.5154964549400511,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
-ALL_LINES_INTERACTIONS,valid,0.5753978453020399,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
+ALL_LINES,valid,0.5753978453020399,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01181,train,0.7940289960005296,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01190,train,0.7832809369279898,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01208,train,0.9067359709278219,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
@@ -864,7 +865,7 @@ BSS01562,train,0.8423829168810366,Poly,promoters,60_to_100_fpath_/stg3/data1/sam
 BSS01573,train,0.9140695226771687,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01583,train,0.9112904267415571,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01588,train,0.7208431633773993,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
-ALL_LINES_INTERACTIONS,train,0.8196521120201541,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
+ALL_LINES,train,0.8196521120201541,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00004,valid,0.895347020533927,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00007,valid,0.8335930119021442,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00043,valid,0.6442185801830304,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
@@ -941,7 +942,7 @@ BSS01866,valid,0.8201352373724708,Poly,promoters,60_to_100_fpath_/stg3/data1/sam
 BSS01869,valid,0.7723752933459034,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01884,valid,0.796807962573034,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01887,valid,0.7990957760510387,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
-ALL_LINES_INTERACTIONS,valid,0.8020648327639948,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
+ALL_LINES,valid,0.8020648327639948,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01391,train,0.6922770480348897,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01393,train,0.5453793492818506,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01399,train,0.4839211778094632,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
@@ -982,7 +983,7 @@ BSS01866,train,0.5927666330084933,Linear,promoters,76_to_116_fpath_/stg3/data1/s
 BSS01869,train,0.5351739039751523,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01884,train,0.5724456515573637,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01887,train,0.5172222622150748,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
-ALL_LINES_INTERACTIONS,train,0.5581584125967884,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
+ALL_LINES,train,0.5581584125967884,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00004,valid,0.6636643005868317,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00007,valid,0.6121987764528004,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00043,valid,0.4132710944962973,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
@@ -1059,7 +1060,7 @@ BSS01355,valid,0.6497909632773785,Linear,promoters,76_to_116_fpath_/stg3/data1/s
 BSS01360,valid,0.6194641157793391,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01366,valid,0.6417731644012447,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01377,valid,0.6316000442313484,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
-ALL_LINES_INTERACTIONS,valid,0.5810529178236232,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
+ALL_LINES,valid,0.5810529178236232,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01391,train,0.8360255637473577,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01393,train,0.8678290191885729,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01399,train,0.7508156252320921,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
@@ -1100,7 +1101,7 @@ BSS01866,train,0.8331208432906244,Poly,promoters,76_to_116_fpath_/stg3/data1/sam
 BSS01869,train,0.8138009387469565,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01884,train,0.8359470070956858,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01887,train,0.8376687659360241,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
-ALL_LINES_INTERACTIONS,train,0.8141733765397567,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
+ALL_LINES,train,0.8141733765397567,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00004,valid,0.8748833078806828,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00007,valid,0.8102310578023012,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00043,valid,0.6419550110479539,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
@@ -1177,7 +1178,7 @@ BSS01355,valid,0.8037611331954817,Poly,promoters,76_to_116_fpath_/stg3/data1/sam
 BSS01360,valid,0.8517967583651354,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01366,valid,0.7607079857389387,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS01377,valid,0.8037134858604735,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
-ALL_LINES_INTERACTIONS,valid,0.8016695494113479,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
+ALL_LINES,valid,0.8016695494113479,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3_overlapped
 BSS00004,train,0.6744724269488933,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00007,train,0.6224644193205415,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00043,train,0.4241455332837726,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
@@ -1218,7 +1219,7 @@ BSS00439,train,0.655065550049958,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/
 BSS00476,train,0.6460540996469308,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00478,train,0.6038478323340006,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00481,train,0.6487391803794946,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
-ALL_LINES_INTERACTIONS,train,0.5776421331469207,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
+ALL_LINES,train,0.5776421331469207,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00483,valid,0.6088064001361047,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00505,valid,0.5931883999612224,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00529,valid,0.6945420086029074,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
@@ -1295,7 +1296,7 @@ BSS01866,valid,0.6062654719590511,Linear,promoters,0_to_40_fpath_/stg3/data1/sam
 BSS01869,valid,0.5414161486295489,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01884,valid,0.5780192094625163,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01887,valid,0.5255097454782117,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
-ALL_LINES_INTERACTIONS,valid,0.5854622225391866,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
+ALL_LINES,valid,0.5854622225391866,Linear,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00004,train,0.8943521451269517,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00007,train,0.8583892729002416,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00043,train,0.6923080575015839,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
@@ -1336,7 +1337,7 @@ BSS00439,train,0.8361789480937727,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/e
 BSS00476,train,0.8839098423297183,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00478,train,0.8242219161332632,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00481,train,0.8882130654628826,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
-ALL_LINES_INTERACTIONS,train,0.8226291011372306,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
+ALL_LINES,train,0.8226291011372306,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00483,valid,0.8356937951049093,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00505,valid,0.8409502061693697,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00529,valid,0.8604265790758772,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
@@ -1413,7 +1414,7 @@ BSS01866,valid,0.8283986841544395,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/e
 BSS01869,valid,0.7786350668235089,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01884,valid,0.7930875063857185,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01887,valid,0.8004134888558072,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
-ALL_LINES_INTERACTIONS,valid,0.8008486848451281,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
+ALL_LINES,valid,0.8008486848451281,Poly,promoters,0_to_40_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00211,train,0.45793112261091606,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00214,train,0.4917208011641503,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00232,train,0.64420227687909,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
@@ -1454,7 +1455,7 @@ BSS01110,train,0.5911081222790101,Linear,promoters,20_to_60_fpath_/stg3/data1/sa
 BSS01126,train,0.46806735725592596,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01136,train,0.6106163650496061,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01155,train,0.6871171520766108,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
-ALL_LINES_INTERACTIONS,train,0.5986181642383093,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
+ALL_LINES,train,0.5986181642383093,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00004,valid,0.6759814452253643,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00007,valid,0.6264466666493527,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00043,valid,0.42007998445458145,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
@@ -1531,7 +1532,7 @@ BSS01866,valid,0.6069978209559315,Linear,promoters,20_to_60_fpath_/stg3/data1/sa
 BSS01869,valid,0.5380142854930746,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01884,valid,0.5786060725481659,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01887,valid,0.5240470886807219,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
-ALL_LINES_INTERACTIONS,valid,0.5742842411633742,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
+ALL_LINES,valid,0.5742842411633742,Linear,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00211,train,0.7101477843906743,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00214,train,0.7260720747580275,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00232,train,0.8320107291609178,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
@@ -1572,7 +1573,7 @@ BSS01110,train,0.8625184505359489,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/
 BSS01126,train,0.7160679057280266,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01136,train,0.8752644522228732,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01155,train,0.9103323350117594,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
-ALL_LINES_INTERACTIONS,train,0.8393826960216413,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
+ALL_LINES,train,0.8393826960216413,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00004,valid,0.8925318373571234,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00007,valid,0.8407676942175444,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00043,valid,0.623192916215032,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
@@ -1649,7 +1650,7 @@ BSS01866,valid,0.846663620939025,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/e
 BSS01869,valid,0.7609460321702419,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01884,valid,0.783901056007155,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01887,valid,0.7843567305615581,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
-ALL_LINES_INTERACTIONS,valid,0.7901942433077279,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
+ALL_LINES,valid,0.7901942433077279,Poly,promoters,20_to_60_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00483,train,0.6108569855911594,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00505,train,0.5969524873479515,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00529,train,0.6981839482640033,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
@@ -1690,7 +1691,7 @@ BSS01391,train,0.702020669937574,Linear,promoters,40_to_80_fpath_/stg3/data1/sam
 BSS01393,train,0.5532272367446247,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01399,train,0.49140755072498377,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01405,train,0.6206385689842464,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
-ALL_LINES_INTERACTIONS,train,0.601899418275393,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
+ALL_LINES,train,0.601899418275393,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00004,valid,0.6764276658872279,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00007,valid,0.6274593567177764,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00043,valid,0.4195077381142691,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
@@ -1767,7 +1768,7 @@ BSS01866,valid,0.606281608849621,Linear,promoters,40_to_80_fpath_/stg3/data1/sam
 BSS01869,valid,0.5376765734582012,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01884,valid,0.5787297490440709,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01887,valid,0.5239752535603424,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
-ALL_LINES_INTERACTIONS,valid,0.5728376268308483,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
+ALL_LINES,valid,0.5728376268308483,Linear,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00483,train,0.8679316643777801,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00505,train,0.8719612318924441,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00529,train,0.8952314032990178,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
@@ -1808,7 +1809,7 @@ BSS01391,train,0.8488615066610098,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/
 BSS01393,train,0.8332746724995688,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01399,train,0.7335484156148051,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01405,train,0.8200031660118187,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
-ALL_LINES_INTERACTIONS,train,0.8373643278829688,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
+ALL_LINES,train,0.8373643278829688,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00004,valid,0.8950322726186035,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00007,valid,0.8412557220012582,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00043,valid,0.6236469321002812,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
@@ -1885,7 +1886,7 @@ BSS01866,valid,0.8388674237787815,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/
 BSS01869,valid,0.765581802711885,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01884,valid,0.7822190824482864,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01887,valid,0.781036900461489,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
-ALL_LINES_INTERACTIONS,valid,0.791792686047626,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
+ALL_LINES,valid,0.791792686047626,Poly,promoters,40_to_80_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01181,train,0.5425206280198892,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01190,train,0.49817090257851604,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01208,train,0.6663141668487216,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
@@ -1926,7 +1927,7 @@ BSS01562,train,0.5946569782150721,Linear,promoters,60_to_100_fpath_/stg3/data1/s
 BSS01573,train,0.6377994096954817,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01583,train,0.6538752875843374,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01588,train,0.512979546615142,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
-ALL_LINES_INTERACTIONS,train,0.5780076949450947,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
+ALL_LINES,train,0.5780076949450947,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00004,valid,0.6758778460490689,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00007,valid,0.6263253694829688,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00043,valid,0.42143126237842254,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
@@ -2003,7 +2004,7 @@ BSS01866,valid,0.6054087212200376,Linear,promoters,60_to_100_fpath_/stg3/data1/s
 BSS01869,valid,0.5385666419698893,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01884,valid,0.5794970070289901,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01887,valid,0.525214289784553,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
-ALL_LINES_INTERACTIONS,valid,0.5852029368485061,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
+ALL_LINES,valid,0.5852029368485061,Linear,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01181,train,0.7928703254577472,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01190,train,0.7853866048030576,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01208,train,0.9075503443727045,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
@@ -2044,7 +2045,7 @@ BSS01562,train,0.840112702997174,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/
 BSS01573,train,0.9148581786888583,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01583,train,0.9119478411545667,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01588,train,0.7215410386206336,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
-ALL_LINES_INTERACTIONS,train,0.8194097427396787,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
+ALL_LINES,train,0.8194097427396787,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00004,valid,0.893694042227227,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00007,valid,0.8314110043565716,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00043,valid,0.6434870567560216,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
@@ -2121,7 +2122,7 @@ BSS01866,valid,0.8192290098089383,Poly,promoters,60_to_100_fpath_/stg3/data1/sam
 BSS01869,valid,0.7738038952157404,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01884,valid,0.7945826982904781,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01887,valid,0.7954762437195997,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
-ALL_LINES_INTERACTIONS,valid,0.8017237169240718,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
+ALL_LINES,valid,0.8017237169240718,Poly,promoters,60_to_100_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01391,train,0.7007519513601496,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01393,train,0.556512979276417,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01399,train,0.4924322015716554,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
@@ -2162,7 +2163,7 @@ BSS01866,train,0.6044075410967658,Linear,promoters,76_to_116_fpath_/stg3/data1/s
 BSS01869,train,0.5427668492518518,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01884,train,0.5819514002033808,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01887,train,0.5274210274553728,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
-ALL_LINES_INTERACTIONS,train,0.5680342094286696,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
+ALL_LINES,train,0.5680342094286696,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00004,valid,0.6745052672166671,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00007,valid,0.6244392504698496,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00043,valid,0.4216868341878306,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
@@ -2239,7 +2240,7 @@ BSS01355,valid,0.6569003179292229,Linear,promoters,76_to_116_fpath_/stg3/data1/s
 BSS01360,valid,0.6331520814259322,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01366,valid,0.6492683838431812,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01377,valid,0.6411778100332072,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
-ALL_LINES_INTERACTIONS,valid,0.5909382203197919,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
+ALL_LINES,valid,0.5909382203197919,Linear,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01391,train,0.8330307222549059,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01393,train,0.8682324851705945,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01399,train,0.7468675651009625,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
@@ -2280,7 +2281,7 @@ BSS01866,train,0.8320228706098838,Poly,promoters,76_to_116_fpath_/stg3/data1/sam
 BSS01869,train,0.815545670522821,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01884,train,0.8341997455880747,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01887,train,0.8383233059052028,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
-ALL_LINES_INTERACTIONS,train,0.8135251490652895,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
+ALL_LINES,train,0.8135251490652895,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00004,valid,0.871991951430828,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00007,valid,0.8065815735380357,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS00043,valid,0.6405319306164898,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
@@ -2357,4 +2358,4 @@ BSS01355,valid,0.8062143611766637,Poly,promoters,76_to_116_fpath_/stg3/data1/sam
 BSS01360,valid,0.849502246002551,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01366,valid,0.7643640353608718,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
 BSS01377,valid,0.8055124276730383,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
-ALL_LINES_INTERACTIONS,valid,0.8019000304430501,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
+ALL_LINES,valid,0.8019000304430501,Poly,promoters,76_to_116_fpath_/stg3/data1/sam/enhancer_prediction/fimo_scan/motif_count_matrices_pro_3
