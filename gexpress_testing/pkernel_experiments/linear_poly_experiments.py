@@ -71,6 +71,31 @@ def eval_array(model, xdata, ydata, scaler = None):
     return pearsonr(preds, ydata)[0]
 
 
+def run_gene_group_traintest_split(pfiles:list, output_file:str):
+    """This is a wrapper on run_traintest_split which splits up a list
+    of files with separate gene groups and runs a 5x CV."""
+    # Simple sanity check -- make sure that no nonredundant cell id has more
+    # than 5 associated files.
+    if max([int(os.path.basename(k).split("_")[1]) for k in pfiles]) > 4:
+        raise ValueError("One or more files associated with the gene group split "
+                         "has more than 5 associated files which is an error.")
+
+    with open(output_file, "a+", encoding="utf-8") as fhandle:
+        for i in range(5):
+            train_pfiles = [p for p in pfiles if os.path.basename(p).split("_")[1] != str(i)]
+            test_pfiles = [p for p in pfiles if os.path.basename(p).split("_")[1] == str(i)]
+            train_yfiles = [p.replace("promoters.npy", "y.npy") for p in train_pfiles]
+            test_yfiles = [p.replace("promoters.npy", "y.npy") for p in test_pfiles]
+
+            tt_split = {"train_ids":{"NA":{"p":train_pfiles, "y":train_yfiles }},
+                    "valid_ids":{"NA":{"p":test_pfiles, "y":test_yfiles} } }
+            fit_evaluate_model(tt_split, 2048, fhandle, f"Split_{i}",
+                            "Linear", "promoters")
+            fit_evaluate_model(tt_split, 32768, fhandle, f"Split_{i}",
+                            "Poly", "promoters")
+
+
+
 def run_traintest_split(tt_split:dict, split_description:str,
                         output_file:str, data_type:str):
     """Fits linear and approximated quadratic to 40 cell lines,
@@ -90,6 +115,7 @@ def run_traintest_exact_quad(tt_split:dict, split_description:str,
     with open(output_file, "a+", encoding="utf-8") as fhandle:
         fit_evaluate_eq_model(tt_split, fhandle, split_description,
                     output_path, data_type)
+
 
 
 def fit_evaluate_model(tt_split:dict, rffs:int, fhandle, split_description:str,
@@ -119,8 +145,10 @@ def fit_evaluate_model(tt_split:dict, rffs:int, fhandle, split_description:str,
         trainx += tt_split["train_ids"][nonred_id][data_key]
         trainy += tt_split["train_ids"][nonred_id]["y"]
 
+    # The chunk size shown is a maximum -- most will have significantly
+    # less than this.
     train_dset = build_regression_dataset(trainx, trainy,
-                        chunk_size=2000)
+                        chunk_size=8000)
 
     # Variance rffs does not matter and is not used. For a linear
     # model the # rffs is ignored. num_threads is ignored if fitting

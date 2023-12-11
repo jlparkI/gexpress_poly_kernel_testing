@@ -6,10 +6,12 @@ import argparse
 
 import numpy as np
 
+from config_files import lasso_flagged_motifs
 from gexpress_testing.pkernel_experiments.linear_poly_experiments import run_traintest_split
 from gexpress_testing.pkernel_experiments.linear_poly_experiments import run_traintest_exact_quad
+from gexpress_testing.pkernel_experiments.linear_poly_experiments import run_gene_group_traintest_split
 from gexpress_testing.utilities.utilities import filter_data, get_tt_split, cleanup_storage
-from config_files import lasso_flagged_motifs
+from gexpress_testing.utilities.utilities import get_promoter_gene_split
 
 
 def gen_arg_parser():
@@ -30,11 +32,12 @@ def gen_arg_parser():
 
     arg_parser.add_argument("--exp_type", type=str,
                             help="Argument should be one of approx_split, exact_split, "
-                            "subset_split. If approx_split, it is fitted to 40 cell lines "
+                            "subset_split, gene_cv. If approx_split, it is fitted to 40 cell lines "
                             "then tested on the remainder up to 5x using an approximate "
                             "poly kernel. exact_split uses an exact quadratic instead and "
                             "saves weights to disk. subset_split is the same as approx_split "
-                            "but uses a subset of the promoter motifs selected by LASSO.")
+                            "but uses a subset of the promoter motifs selected by LASSO. gene_cv "
+                            "runs a 5x CV over different subsets of the available genes.")
     return arg_parser
 
 
@@ -57,6 +60,7 @@ if __name__ == "__main__":
 
     # For the subset split only, we need to regenerate the data files
     # multiple times (using different sets of "significant" motifs).
+    # This is the only experiment type for which this is true.
     if args.exp_type == "subset_split":
         key_positions = lasso_flagged_motifs.KEY_POSITIONS_BY_SPLIT
         for k, key_position_set in enumerate(key_positions):
@@ -74,7 +78,15 @@ if __name__ == "__main__":
             cleanup_storage(xfiles, pfiles, yfiles)
 
 
-    # The two other experiment types can use the same file lists by contrast.
+    # The next experiment type splits the data up into subsets of genes
+    # and runs a 5x CV over these. This is the only experiment type for
+    # which we do not need to split by cell id.
+    elif args.exp_type == "gene_cv":
+        pfiles, yfiles = get_promoter_gene_split(args.prom_path, args.ypath,
+                        nonredundant_ids, args.storage)
+        output_fpath = os.path.join(home_dir, "results", "gene_group_results.csv")
+        run_gene_group_traintest_split(pfiles, output_fpath)
+
 
     else:
         pfiles, xfiles, yfiles = filter_data(args.prom_path, args.ypath,

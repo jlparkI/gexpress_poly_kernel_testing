@@ -1,5 +1,6 @@
 """Utilities for handling, filtering and sorting file lists."""
 import os
+import math
 import numpy as np
 
 
@@ -16,6 +17,78 @@ def get_file_lists(start_dir, prom_dir, ydir, en_dir):
     prom_files = [os.path.abspath(f) for f in prom_files]
     os.chdir(start_dir)
     return prom_files, yfiles, en_files
+
+
+
+def get_promoter_gene_split(prom_path:str, ypath:str, nonredundant_ids:list,
+                    storage_dir:str):
+    """Filters the input data by making copies only of files with
+    nonredundant lines, but splits into chunks by genes so that
+    caller can train on one subset of genes and test on another.
+
+    Args:
+        prom_path (str): A filepath to the directory with promoter counts.
+        ypath (str): A filepath to the directory with yvalues.
+        nonredundant_ids (list): List of the nonredundant cell lines.
+        storage_dir (str): A filepath to a temporary storage dir where
+            the data is saved. In a cluster environment, this can be
+            /scratch.
+
+    Returns:
+        out_pfiles (list): A list of numpy files in storage_dir with promoter
+            counts only. Each filename is of the format f"{nonred_id}_p_{i}.npy"
+            where i is in [0,4] and indicates which subset of the input genes
+            is present in this file.
+        out_yfiles (list): A list of numpy files in storage dir with yvalues.
+            Each filename is of the format f"{nonred_id}_y_{i}.npy"
+            where i is in [0,4] and indicates which subset of the input genes
+            is present in this file.
+
+    Raises:
+        ValueError: A ValueError is raised if one or more expected nonredundant
+            cell line ids are not found
+    """
+    out_pfiles, out_yfiles = [], []
+    ndpoints = 0
+
+    print("Now retrieving and sorting files...", flush=True)
+
+    expected_num_genes = -1
+
+    for nonred_id in nonredundant_ids:
+        pfile = os.path.join(prom_path, f"{nonred_id}_count_matrix_pro.npy")
+        yfile = os.path.join(ypath, f"{nonred_id}.y.npy")
+        try:
+            promoters = np.load(pfile)
+            ydata = np.load(yfile)
+        except:
+            raise ValueError(f"Could not find numpy files for nonredundant id {nonred_id}")
+
+        if expected_num_genes == -1:
+            expected_num_genes = promoters.shape[0]
+            chunk_size = math.ceil(expected_num_genes / 5)
+        elif promoters.shape[0] != expected_num_genes:
+            raise ValueError(f"File {nonred_id} does not have the expected number of genes.")
+
+        promoters = promoters.astype(np.float32)
+        ndpoints += promoters.shape[0]
+
+
+        for j, k in enumerate(range(0, promoters.shape[0], chunk_size)):
+            out_prom_file = os.path.join(storage_dir, f"{nonred_id}_{j}_promoters.npy")
+            out_yfile = os.path.join(storage_dir, f"{nonred_id}_{j}_y.npy")
+
+            np.save(out_prom_file, promoters[k:k+chunk_size,...])
+            np.save(out_yfile, ydata[k:k+chunk_size])
+
+            out_pfiles.append(out_prom_file)
+            out_yfiles.append(out_yfile)
+
+
+    print(f"Total datapoints: {ndpoints}", flush=True)
+    return out_pfiles, out_yfiles
+
+
 
 
 

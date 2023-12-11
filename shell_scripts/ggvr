@@ -1,0 +1,823 @@
+Now retrieving and sorting files...
+Total datapoints: 2129180
+Tuning complete, nmll 2046769.24, hparams: 2.0234839
+Chunk 0 complete.
+Chunk 10 complete.
+Chunk 20 complete.
+Chunk 30 complete.
+Chunk 40 complete.
+Chunk 50 complete.
+Chunk 60 complete.
+Chunk 70 complete.
+Chunk 80 complete.
+Chunk 90 complete.
+Chunk 100 complete.
+Chunk 110 complete.
+Chunk 120 complete.
+Chunk 130 complete.
+Chunk 140 complete.
+Chunk 150 complete.
+Chunk 160 complete.
+Chunk 170 complete.
+Chunk 180 complete.
+Chunk 190 complete.
+Chunk 200 complete.
+Chunk 210 complete.
+Chunk 220 complete.
+Chunk 230 complete.
+Chunk 240 complete.
+Chunk 250 complete.
+Chunk 260 complete.
+Chunk 270 complete.
+Chunk 280 complete.
+Chunk 290 complete.
+Chunk 300 complete.
+Chunk 310 complete.
+Chunk 320 complete.
+Chunk 330 complete.
+Chunk 340 complete.
+Chunk 350 complete.
+Chunk 360 complete.
+Chunk 370 complete.
+Chunk 380 complete.
+Chunk 390 complete.
+Chunk 400 complete.
+Chunk 410 complete.
+Chunk 420 complete.
+Chunk 430 complete.
+Chunk 440 complete.
+Chunk 450 complete.
+Chunk 460 complete.
+Ratio: 4.523855961656838e-13
+starting fitting
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Fitting complete.
+56.024564266204834
+Tuning complete, nmll 1863980.97, hparams: 1.9304501
+Chunk 0 complete.
+Chunk 10 complete.
+Chunk 20 complete.
+Chunk 30 complete.
+Chunk 40 complete.
+Chunk 50 complete.
+Chunk 60 complete.
+Chunk 70 complete.
+Chunk 80 complete.
+Chunk 90 complete.
+Chunk 100 complete.
+Chunk 110 complete.
+Chunk 120 complete.
+Chunk 130 complete.
+Chunk 140 complete.
+Chunk 150 complete.
+Chunk 160 complete.
+Chunk 170 complete.
+Chunk 180 complete.
+Chunk 190 complete.
+Chunk 200 complete.
+Chunk 210 complete.
+Chunk 220 complete.
+Chunk 230 complete.
+Chunk 240 complete.
+Chunk 250 complete.
+Chunk 260 complete.
+Chunk 270 complete.
+Chunk 280 complete.
+Chunk 290 complete.
+Chunk 300 complete.
+Chunk 310 complete.
+Chunk 320 complete.
+Chunk 330 complete.
+Chunk 340 complete.
+Chunk 350 complete.
+Chunk 360 complete.
+Chunk 370 complete.
+Chunk 380 complete.
+Chunk 390 complete.
+Chunk 400 complete.
+Chunk 410 complete.
+Chunk 420 complete.
+Chunk 430 complete.
+Chunk 440 complete.
+Chunk 450 complete.
+Chunk 460 complete.
+Ratio: 65305.76224187744
+starting fitting
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Iteration 55
+Iteration 60
+Iteration 65
+Iteration 70
+Iteration 75
+Iteration 80
+Iteration 85
+Iteration 90
+Iteration 95
+Iteration 100
+Iteration 105
+Iteration 110
+Iteration 115
+Iteration 120
+Iteration 125
+Iteration 130
+Iteration 135
+Iteration 140
+Iteration 145
+Iteration 150
+Iteration 155
+Iteration 160
+Iteration 165
+Iteration 170
+Iteration 175
+Iteration 180
+Iteration 185
+Iteration 190
+Iteration 195
+Iteration 200
+Iteration 205
+Iteration 210
+Iteration 215
+Iteration 220
+Iteration 225
+Iteration 230
+Iteration 235
+Iteration 240
+Iteration 245
+Iteration 250
+Iteration 255
+Iteration 260
+Iteration 265
+Iteration 270
+Iteration 275
+Iteration 280
+Iteration 285
+Iteration 290
+Iteration 295
+Iteration 300
+Iteration 305
+Iteration 310
+Iteration 315
+Iteration 320
+Iteration 325
+Iteration 330
+Iteration 335
+Iteration 340
+Fitting complete.
+7944.6334755420685
+Tuning complete, nmll 2059010.633, hparams: 2.0234839
+Chunk 0 complete.
+Chunk 10 complete.
+Chunk 20 complete.
+Chunk 30 complete.
+Chunk 40 complete.
+Chunk 50 complete.
+Chunk 60 complete.
+Chunk 70 complete.
+Chunk 80 complete.
+Chunk 90 complete.
+Chunk 100 complete.
+Chunk 110 complete.
+Chunk 120 complete.
+Chunk 130 complete.
+Chunk 140 complete.
+Chunk 150 complete.
+Chunk 160 complete.
+Chunk 170 complete.
+Chunk 180 complete.
+Chunk 190 complete.
+Chunk 200 complete.
+Chunk 210 complete.
+Chunk 220 complete.
+Chunk 230 complete.
+Chunk 240 complete.
+Chunk 250 complete.
+Chunk 260 complete.
+Chunk 270 complete.
+Chunk 280 complete.
+Chunk 290 complete.
+Chunk 300 complete.
+Chunk 310 complete.
+Chunk 320 complete.
+Chunk 330 complete.
+Chunk 340 complete.
+Chunk 350 complete.
+Chunk 360 complete.
+Chunk 370 complete.
+Chunk 380 complete.
+Chunk 390 complete.
+Chunk 400 complete.
+Chunk 410 complete.
+Chunk 420 complete.
+Chunk 430 complete.
+Chunk 440 complete.
+Chunk 450 complete.
+Chunk 460 complete.
+Ratio: 5.784058870112662e-13
+starting fitting
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Fitting complete.
+45.341830015182495
+Tuning complete, nmll 1875440.186, hparams: 1.9304501
+Chunk 0 complete.
+Chunk 10 complete.
+Chunk 20 complete.
+Chunk 30 complete.
+Chunk 40 complete.
+Chunk 50 complete.
+Chunk 60 complete.
+Chunk 70 complete.
+Chunk 80 complete.
+Chunk 90 complete.
+Chunk 100 complete.
+Chunk 110 complete.
+Chunk 120 complete.
+Chunk 130 complete.
+Chunk 140 complete.
+Chunk 150 complete.
+Chunk 160 complete.
+Chunk 170 complete.
+Chunk 180 complete.
+Chunk 190 complete.
+Chunk 200 complete.
+Chunk 210 complete.
+Chunk 220 complete.
+Chunk 230 complete.
+Chunk 240 complete.
+Chunk 250 complete.
+Chunk 260 complete.
+Chunk 270 complete.
+Chunk 280 complete.
+Chunk 290 complete.
+Chunk 300 complete.
+Chunk 310 complete.
+Chunk 320 complete.
+Chunk 330 complete.
+Chunk 340 complete.
+Chunk 350 complete.
+Chunk 360 complete.
+Chunk 370 complete.
+Chunk 380 complete.
+Chunk 390 complete.
+Chunk 400 complete.
+Chunk 410 complete.
+Chunk 420 complete.
+Chunk 430 complete.
+Chunk 440 complete.
+Chunk 450 complete.
+Chunk 460 complete.
+Ratio: 66630.79940324683
+starting fitting
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Iteration 55
+Iteration 60
+Iteration 65
+Iteration 70
+Iteration 75
+Iteration 80
+Iteration 85
+Iteration 90
+Iteration 95
+Iteration 100
+Iteration 105
+Iteration 110
+Iteration 115
+Iteration 120
+Iteration 125
+Iteration 130
+Iteration 135
+Iteration 140
+Iteration 145
+Iteration 150
+Iteration 155
+Iteration 160
+Iteration 165
+Iteration 170
+Iteration 175
+Iteration 180
+Iteration 185
+Iteration 190
+Iteration 195
+Iteration 200
+Iteration 205
+Iteration 210
+Iteration 215
+Iteration 220
+Iteration 225
+Iteration 230
+Iteration 235
+Iteration 240
+Iteration 245
+Iteration 250
+Iteration 255
+Iteration 260
+Iteration 265
+Iteration 270
+Iteration 275
+Iteration 280
+Iteration 285
+Iteration 290
+Iteration 295
+Iteration 300
+Iteration 305
+Iteration 310
+Iteration 315
+Iteration 320
+Iteration 325
+Iteration 330
+Iteration 335
+Fitting complete.
+7870.924893140793
+Tuning complete, nmll 2052505.203, hparams: 2.0234839
+Chunk 0 complete.
+Chunk 10 complete.
+Chunk 20 complete.
+Chunk 30 complete.
+Chunk 40 complete.
+Chunk 50 complete.
+Chunk 60 complete.
+Chunk 70 complete.
+Chunk 80 complete.
+Chunk 90 complete.
+Chunk 100 complete.
+Chunk 110 complete.
+Chunk 120 complete.
+Chunk 130 complete.
+Chunk 140 complete.
+Chunk 150 complete.
+Chunk 160 complete.
+Chunk 170 complete.
+Chunk 180 complete.
+Chunk 190 complete.
+Chunk 200 complete.
+Chunk 210 complete.
+Chunk 220 complete.
+Chunk 230 complete.
+Chunk 240 complete.
+Chunk 250 complete.
+Chunk 260 complete.
+Chunk 270 complete.
+Chunk 280 complete.
+Chunk 290 complete.
+Chunk 300 complete.
+Chunk 310 complete.
+Chunk 320 complete.
+Chunk 330 complete.
+Chunk 340 complete.
+Chunk 350 complete.
+Chunk 360 complete.
+Chunk 370 complete.
+Chunk 380 complete.
+Chunk 390 complete.
+Chunk 400 complete.
+Chunk 410 complete.
+Chunk 420 complete.
+Chunk 430 complete.
+Chunk 440 complete.
+Chunk 450 complete.
+Chunk 460 complete.
+Ratio: 4.62883208381419e-13
+starting fitting
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Fitting complete.
+45.67904591560364
+Tuning complete, nmll 1874457.444, hparams: 1.9304501
+Chunk 0 complete.
+Chunk 10 complete.
+Chunk 20 complete.
+Chunk 30 complete.
+Chunk 40 complete.
+Chunk 50 complete.
+Chunk 60 complete.
+Chunk 70 complete.
+Chunk 80 complete.
+Chunk 90 complete.
+Chunk 100 complete.
+Chunk 110 complete.
+Chunk 120 complete.
+Chunk 130 complete.
+Chunk 140 complete.
+Chunk 150 complete.
+Chunk 160 complete.
+Chunk 170 complete.
+Chunk 180 complete.
+Chunk 190 complete.
+Chunk 200 complete.
+Chunk 210 complete.
+Chunk 220 complete.
+Chunk 230 complete.
+Chunk 240 complete.
+Chunk 250 complete.
+Chunk 260 complete.
+Chunk 270 complete.
+Chunk 280 complete.
+Chunk 290 complete.
+Chunk 300 complete.
+Chunk 310 complete.
+Chunk 320 complete.
+Chunk 330 complete.
+Chunk 340 complete.
+Chunk 350 complete.
+Chunk 360 complete.
+Chunk 370 complete.
+Chunk 380 complete.
+Chunk 390 complete.
+Chunk 400 complete.
+Chunk 410 complete.
+Chunk 420 complete.
+Chunk 430 complete.
+Chunk 440 complete.
+Chunk 450 complete.
+Chunk 460 complete.
+Ratio: 68066.32485134294
+starting fitting
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Iteration 55
+Iteration 60
+Iteration 65
+Iteration 70
+Iteration 75
+Iteration 80
+Iteration 85
+Iteration 90
+Iteration 95
+Iteration 100
+Iteration 105
+Iteration 110
+Iteration 115
+Iteration 120
+Iteration 125
+Iteration 130
+Iteration 135
+Iteration 140
+Iteration 145
+Iteration 150
+Iteration 155
+Iteration 160
+Iteration 165
+Iteration 170
+Iteration 175
+Iteration 180
+Iteration 185
+Iteration 190
+Iteration 195
+Iteration 200
+Iteration 205
+Iteration 210
+Iteration 215
+Iteration 220
+Iteration 225
+Iteration 230
+Iteration 235
+Iteration 240
+Iteration 245
+Iteration 250
+Iteration 255
+Iteration 260
+Iteration 265
+Iteration 270
+Iteration 275
+Iteration 280
+Iteration 285
+Iteration 290
+Iteration 295
+Iteration 300
+Iteration 305
+Iteration 310
+Iteration 315
+Iteration 320
+Iteration 325
+Iteration 330
+Iteration 335
+Iteration 340
+Fitting complete.
+8001.645894289017
+Tuning complete, nmll 2069638.935, hparams: 2.0234839
+Chunk 0 complete.
+Chunk 10 complete.
+Chunk 20 complete.
+Chunk 30 complete.
+Chunk 40 complete.
+Chunk 50 complete.
+Chunk 60 complete.
+Chunk 70 complete.
+Chunk 80 complete.
+Chunk 90 complete.
+Chunk 100 complete.
+Chunk 110 complete.
+Chunk 120 complete.
+Chunk 130 complete.
+Chunk 140 complete.
+Chunk 150 complete.
+Chunk 160 complete.
+Chunk 170 complete.
+Chunk 180 complete.
+Chunk 190 complete.
+Chunk 200 complete.
+Chunk 210 complete.
+Chunk 220 complete.
+Chunk 230 complete.
+Chunk 240 complete.
+Chunk 250 complete.
+Chunk 260 complete.
+Chunk 270 complete.
+Chunk 280 complete.
+Chunk 290 complete.
+Chunk 300 complete.
+Chunk 310 complete.
+Chunk 320 complete.
+Chunk 330 complete.
+Chunk 340 complete.
+Chunk 350 complete.
+Chunk 360 complete.
+Chunk 370 complete.
+Chunk 380 complete.
+Chunk 390 complete.
+Chunk 400 complete.
+Chunk 410 complete.
+Chunk 420 complete.
+Chunk 430 complete.
+Chunk 440 complete.
+Chunk 450 complete.
+Chunk 460 complete.
+Ratio: 5.602670772743395e-13
+starting fitting
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Fitting complete.
+45.45970296859741
+Tuning complete, nmll 1904451.421, hparams: 1.9304501
+Chunk 0 complete.
+Chunk 10 complete.
+Chunk 20 complete.
+Chunk 30 complete.
+Chunk 40 complete.
+Chunk 50 complete.
+Chunk 60 complete.
+Chunk 70 complete.
+Chunk 80 complete.
+Chunk 90 complete.
+Chunk 100 complete.
+Chunk 110 complete.
+Chunk 120 complete.
+Chunk 130 complete.
+Chunk 140 complete.
+Chunk 150 complete.
+Chunk 160 complete.
+Chunk 170 complete.
+Chunk 180 complete.
+Chunk 190 complete.
+Chunk 200 complete.
+Chunk 210 complete.
+Chunk 220 complete.
+Chunk 230 complete.
+Chunk 240 complete.
+Chunk 250 complete.
+Chunk 260 complete.
+Chunk 270 complete.
+Chunk 280 complete.
+Chunk 290 complete.
+Chunk 300 complete.
+Chunk 310 complete.
+Chunk 320 complete.
+Chunk 330 complete.
+Chunk 340 complete.
+Chunk 350 complete.
+Chunk 360 complete.
+Chunk 370 complete.
+Chunk 380 complete.
+Chunk 390 complete.
+Chunk 400 complete.
+Chunk 410 complete.
+Chunk 420 complete.
+Chunk 430 complete.
+Chunk 440 complete.
+Chunk 450 complete.
+Chunk 460 complete.
+Ratio: 70745.07504898522
+starting fitting
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Iteration 55
+Iteration 60
+Iteration 65
+Iteration 70
+Iteration 75
+Iteration 80
+Iteration 85
+Iteration 90
+Iteration 95
+Iteration 100
+Iteration 105
+Iteration 110
+Iteration 115
+Iteration 120
+Iteration 125
+Iteration 130
+Iteration 135
+Iteration 140
+Iteration 145
+Iteration 150
+Iteration 155
+Iteration 160
+Iteration 165
+Iteration 170
+Iteration 175
+Iteration 180
+Iteration 185
+Iteration 190
+Iteration 195
+Iteration 200
+Iteration 205
+Iteration 210
+Iteration 215
+Iteration 220
+Iteration 225
+Iteration 230
+Iteration 235
+Iteration 240
+Iteration 245
+Iteration 250
+Iteration 255
+Iteration 260
+Iteration 265
+Iteration 270
+Iteration 275
+Iteration 280
+Iteration 285
+Iteration 290
+Iteration 295
+Iteration 300
+Iteration 305
+Iteration 310
+Iteration 315
+Iteration 320
+Iteration 325
+Iteration 330
+Iteration 335
+Fitting complete.
+7909.932074308395
+Tuning complete, nmll 2084994.905, hparams: 2.0234839
+Chunk 0 complete.
+Chunk 10 complete.
+Chunk 20 complete.
+Chunk 30 complete.
+Chunk 40 complete.
+Chunk 50 complete.
+Chunk 60 complete.
+Chunk 70 complete.
+Chunk 80 complete.
+Chunk 90 complete.
+Chunk 100 complete.
+Chunk 110 complete.
+Chunk 120 complete.
+Chunk 130 complete.
+Chunk 140 complete.
+Chunk 150 complete.
+Chunk 160 complete.
+Chunk 170 complete.
+Chunk 180 complete.
+Chunk 190 complete.
+Chunk 200 complete.
+Chunk 210 complete.
+Chunk 220 complete.
+Chunk 230 complete.
+Chunk 240 complete.
+Chunk 250 complete.
+Chunk 260 complete.
+Chunk 270 complete.
+Chunk 280 complete.
+Chunk 290 complete.
+Chunk 300 complete.
+Chunk 310 complete.
+Chunk 320 complete.
+Chunk 330 complete.
+Chunk 340 complete.
+Chunk 350 complete.
+Chunk 360 complete.
+Chunk 370 complete.
+Chunk 380 complete.
+Chunk 390 complete.
+Chunk 400 complete.
+Chunk 410 complete.
+Chunk 420 complete.
+Chunk 430 complete.
+Chunk 440 complete.
+Chunk 450 complete.
+Chunk 460 complete.
+Ratio: 5.190038691116103e-13
+starting fitting
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Fitting complete.
+45.22934055328369
+Tuning complete, nmll 1929880.532, hparams: 1.9304501
+Chunk 0 complete.
+Chunk 10 complete.
+Chunk 20 complete.
+Chunk 30 complete.
+Chunk 40 complete.
+Chunk 50 complete.
+Chunk 60 complete.
+Chunk 70 complete.
+Chunk 80 complete.
+Chunk 90 complete.
+Chunk 100 complete.
+Chunk 110 complete.
+Chunk 120 complete.
+Chunk 130 complete.
+Chunk 140 complete.
+Chunk 150 complete.
+Chunk 160 complete.
+Chunk 170 complete.
+Chunk 180 complete.
+Chunk 190 complete.
+Chunk 200 complete.
+Chunk 210 complete.
+Chunk 220 complete.
+Chunk 230 complete.
+Chunk 240 complete.
+Chunk 250 complete.
+Chunk 260 complete.
+Chunk 270 complete.
+Chunk 280 complete.
+Chunk 290 complete.
+Chunk 300 complete.
+Chunk 310 complete.
+Chunk 320 complete.
+Chunk 330 complete.
+Chunk 340 complete.
+Chunk 350 complete.
+Chunk 360 complete.
+Chunk 370 complete.
+Chunk 380 complete.
+Chunk 390 complete.
+Chunk 400 complete.
+Chunk 410 complete.
+Chunk 420 complete.
+Chunk 430 complete.
+Chunk 440 complete.
+Chunk 450 complete.
+Chunk 460 complete.
+Ratio: 74641.13522807175
