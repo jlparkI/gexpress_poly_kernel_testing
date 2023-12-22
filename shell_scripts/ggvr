@@ -821,3 +821,4 @@ Chunk 440 complete.
 Chunk 450 complete.
 Chunk 460 complete.
 Ratio: 74641.13522807175
+slurmstepd: error: *** JOB 368658 ON gpu-2 CANCELLED AT 2023-12-11T07:42:09 ***

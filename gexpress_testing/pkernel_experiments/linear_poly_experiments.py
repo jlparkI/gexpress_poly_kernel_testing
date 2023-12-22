@@ -89,10 +89,12 @@ def run_gene_group_traintest_split(pfiles:list, output_file:str):
 
             tt_split = {"train_ids":{"NA":{"p":train_pfiles, "y":train_yfiles }},
                     "valid_ids":{"NA":{"p":test_pfiles, "y":test_yfiles} } }
-            fit_evaluate_model(tt_split, 2048, fhandle, f"Split_{i}",
-                            "Linear", "promoters")
+            #fit_evaluate_model(tt_split, 2048, fhandle, f"Split_{i}",
+            #                "Linear", "promoters")
+            #fit_evaluate_model(tt_split, 32768, fhandle, f"Split_{i}",
+            #                "Poly", "promoters")
             fit_evaluate_model(tt_split, 32768, fhandle, f"Split_{i}",
-                            "Poly", "promoters")
+                            "RBF", "promoters")
 
 
 
@@ -105,6 +107,9 @@ def run_traintest_split(tt_split:dict, split_description:str,
                             "Linear", data_type)
         fit_evaluate_model(tt_split, 32768, fhandle, split_description,
                             "Poly", data_type)
+
+
+
 
 
 def run_traintest_exact_quad(tt_split:dict, split_description:str,
@@ -153,7 +158,11 @@ def fit_evaluate_model(tt_split:dict, rffs:int, fhandle, split_description:str,
     # Variance rffs does not matter and is not used. For a linear
     # model the # rffs is ignored. num_threads is ignored if fitting
     # on GPU.
-    model = xGPReg(num_rffs = 8192, variance_rffs = 64, kernel_choice = model_type,
+    if model_type == "RBF":
+        train_rffs = 4096
+    else:
+        train_rffs = 8192
+    model = xGPReg(num_rffs = train_rffs, variance_rffs = 64, kernel_choice = model_type,
                           kernel_settings={"intercept":True, "polydegree":2},
                           verbose = True, device = "gpu",
                           num_threads = 10)
@@ -232,3 +241,83 @@ def fit_evaluate_eq_model(tt_split:dict, fhandle, split_description:str,
             weight_handle:
         output_dict = {"weights":model.weights, "hparam":hparams}
         pickle.dump(output_dict, weight_handle)
+
+
+
+
+def single_group_gcv(xfname:str, yfname:str,
+                     output_file:str):
+    """Performs a cross-validation on a single pair of x and y
+    files."""
+    xdata, ydata = np.load(xfname), np.load(yfname)
+    rng = np.random.default_rng(123)
+    idx = np.array_split(rng.permutation(xdata.shape[0]), 5)
+
+
+    for model_type in ["Linear", "Poly"]:
+        elapsed_time = time.time()
+
+        for i in range(5):
+            train_idx = np.concatenate(idx[:i] + idx[(i+1):])
+
+            testx, testy = xdata[idx[i],...], ydata[idx[i]]
+            trainx, trainy = xdata[train_idx,...], ydata[train_idx]
+            train_dset = build_regression_dataset(trainx, trainy,
+                                                  chunk_size=2000)
+
+            # Variance rffs does not matter and is not used. For a linear
+            # model the # rffs is ignored. num_threads is ignored if fitting
+            # on GPU.
+            model = xGPReg(num_rffs = 16384, variance_rffs = 64,
+                           kernel_choice = model_type,
+                           kernel_settings={"intercept":True, "polydegree":2},
+                           verbose = True, device = "gpu",
+                           num_threads = 10)
+
+            # Inner nested CV to pick a hyperparameter.
+            hps = [1.5, 2., 2.5, 3., 3.5, 4., 4.5, 5, 5.5, 6]
+            nmll_vals = []
+            for hpv in hps:
+                nested_cv_nmll = []
+                model.set_hyperparams(np.array([hpv]), dataset=train_dset)
+                for j in range(5):
+                    subset_idx = np.array_split(rng.permutation(trainx.shape[0]), 5)
+                    subset_train_idx = np.concatenate(subset_idx[:j] +
+                                                      subset_idx[(j+1):])
+
+                    subset_testx, subset_testy = trainx[subset_idx[j],...], \
+                            trainy[subset_idx[j]]
+                    subset_trainx, subset_trainy = trainx[subset_train_idx,...], \
+                            trainy[subset_train_idx]
+                    subset_train_dset = build_regression_dataset(subset_trainx,
+                                            subset_trainy, chunk_size=2000)
+                    if model_type == "Linear":
+                        model.fit(subset_train_dset, mode = "exact", tol=1e-6,
+                                  suppress_var = True)
+                    else:
+                        model.fit(subset_train_dset, mode = "cg", tol = 1e-6,
+                                  suppress_var=True)
+                    nested_cv_nmll.append(pearsonr(model.predict(subset_testx),
+                                                   subset_testy)[0])
+                nmll_vals.append(np.mean(nested_cv_nmll))
+
+            print(f"HP: {hps}\nHeld out res: {nmll_vals}", flush=True)
+
+            model.num_rffs = 32768
+            model.set_hyperparams(np.array([ hps[np.argmax(nmll_vals)] ]) )
+
+            if model_type == "Linear":
+                model.fit(train_dset, mode = "exact", tol=1e-6,
+                                  suppress_var = True)
+            else:
+                model.fit(train_dset, mode = "cg", tol = 1e-6,
+                          suppress_var=True)
+
+
+            trainres = pearsonr(model.predict(trainx, get_var=False), trainy)[0]
+            testres = pearsonr(model.predict(testx, get_var=False), testy)[0]
+
+            with open(output_file, "a+", encoding="utf-8") as fhandle:
+                fhandle.write(f"{xfname},{i},{model_type},{trainres},{testres}\n")
+        elapsed_time = time.time() - elapsed_time
+        print(f"For model type {model_type}, elapsed time {elapsed_time}", flush=True)

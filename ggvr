@@ -1,0 +1,1563 @@
+Now working on /stg3/data1/sam/enhancer_prediction/validation/BSS01391_count_matrix_pro.npy, /stg3/data3/Jonathan/jonathan2/poly_kernel_motifs/ydata/BSS01391.y.npy
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+HP: [1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5, 5.5, 6]
+Held out res: [0.6724803300420255, 0.6651861013742633, 0.6684763397781238, 0.6583568372509887, 0.6642094226342291, 0.6457866487551465, 0.6395589523664817, 0.6064648308682459, 0.5617194518060069, 0.5096962843501169]
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+HP: [1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5, 5.5, 6]
+Held out res: [0.6766339828887407, 0.6695712350812422, 0.6697919169326646, 0.6737434268548066, 0.6709822563667135, 0.6534221297956951, 0.6443224592986103, 0.603297364539535, 0.5469205601783275, 0.5082471221290974]
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+HP: [1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5, 5.5, 6]
+Held out res: [0.6717487180323818, 0.6668587470583915, 0.6746973904612886, 0.6799760476672333, 0.67162334282296, 0.6582222037015313, 0.6453155621999054, 0.6010824000018491, 0.5592339792588087, 0.5172000883731729]
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+HP: [1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5, 5.5, 6]
+Held out res: [0.6773744953318184, 0.6698503546091704, 0.6718447438667178, 0.673266305362693, 0.6715020250147149, 0.6679431999903827, 0.6482611829849686, 0.6111024181983158, 0.5689185231071192, 0.5223599486289828]
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+starting fitting
+Fitting complete.
+HP: [1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5, 5.5, 6]
+Held out res: [0.6782863602268865, 0.6779206421704501, 0.6741637863385019, 0.6728531577738939, 0.6715739056328783, 0.6570421467986399, 0.6406085616978132, 0.6131973187803993, 0.5651659861447679, 0.519656757238024]
+starting fitting
+Fitting complete.
+For model type Linear, elapsed time 12.026811599731445
+starting fitting
+Chunk 0 complete.
+Chunk 0 complete.
+Chunk 0 complete.
+Chunk 0 complete.
+Using rank: 2048
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Iteration 55
+Iteration 60
+Iteration 65
+Iteration 70
+Iteration 75
+Iteration 80
+Iteration 85
+Iteration 90
+Iteration 95
+Iteration 100
+Iteration 105
+Iteration 110
+Iteration 115
+Iteration 120
+Iteration 125
+Iteration 130
+Iteration 135
+Iteration 140
+Iteration 145
+Iteration 150
+Iteration 155
+Iteration 160
+Iteration 165
+Iteration 170
+Iteration 175
+Iteration 180
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Chunk 0 complete.
+Chunk 0 complete.
+Chunk 0 complete.
+Using rank: 2048
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Iteration 55
+Iteration 60
+Iteration 65
+Iteration 70
+Iteration 75
+Iteration 80
+Iteration 85
+Iteration 90
+Iteration 95
+Iteration 100
+Iteration 105
+Iteration 110
+Iteration 115
+Iteration 120
+Iteration 125
+Iteration 130
+Iteration 135
+Iteration 140
+Iteration 145
+Iteration 150
+Iteration 155
+Iteration 160
+Iteration 165
+Iteration 170
+Iteration 175
+Iteration 180
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Chunk 0 complete.
+Chunk 0 complete.
+Chunk 0 complete.
+Using rank: 2048
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Iteration 55
+Iteration 60
+Iteration 65
+Iteration 70
+Iteration 75
+Iteration 80
+Iteration 85
+Iteration 90
+Iteration 95
+Iteration 100
+Iteration 105
+Iteration 110
+Iteration 115
+Iteration 120
+Iteration 125
+Iteration 130
+Iteration 135
+Iteration 140
+Iteration 145
+Iteration 150
+Iteration 155
+Iteration 160
+Iteration 165
+Iteration 170
+Iteration 175
+Iteration 180
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Chunk 0 complete.
+Chunk 0 complete.
+Chunk 0 complete.
+Using rank: 2048
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Iteration 55
+Iteration 60
+Iteration 65
+Iteration 70
+Iteration 75
+Iteration 80
+Iteration 85
+Iteration 90
+Iteration 95
+Iteration 100
+Iteration 105
+Iteration 110
+Iteration 115
+Iteration 120
+Iteration 125
+Iteration 130
+Iteration 135
+Iteration 140
+Iteration 145
+Iteration 150
+Iteration 155
+Iteration 160
+Iteration 165
+Iteration 170
+Iteration 175
+Iteration 180
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Chunk 0 complete.
+Chunk 0 complete.
+Chunk 0 complete.
+Using rank: 2048
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Iteration 55
+Iteration 60
+Iteration 65
+Iteration 70
+Iteration 75
+Iteration 80
+Iteration 85
+Iteration 90
+Iteration 95
+Iteration 100
+Iteration 105
+Iteration 110
+Iteration 115
+Iteration 120
+Iteration 125
+Iteration 130
+Iteration 135
+Iteration 140
+Iteration 145
+Iteration 150
+Iteration 155
+Iteration 160
+Iteration 165
+Iteration 170
+Iteration 175
+Iteration 180
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Chunk 0 complete.
+Chunk 0 complete.
+Using rank: 1536
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Iteration 55
+Iteration 60
+Iteration 65
+Iteration 70
+Iteration 75
+Iteration 80
+Iteration 85
+Iteration 90
+Iteration 95
+Iteration 100
+Iteration 105
+Iteration 110
+Iteration 115
+Iteration 120
+Iteration 125
+Iteration 130
+Iteration 135
+Iteration 140
+Iteration 145
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Chunk 0 complete.
+Chunk 0 complete.
+Using rank: 1536
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Iteration 55
+Iteration 60
+Iteration 65
+Iteration 70
+Iteration 75
+Iteration 80
+Iteration 85
+Iteration 90
+Iteration 95
+Iteration 100
+Iteration 105
+Iteration 110
+Iteration 115
+Iteration 120
+Iteration 125
+Iteration 130
+Iteration 135
+Iteration 140
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Chunk 0 complete.
+Chunk 0 complete.
+Using rank: 1536
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Iteration 55
+Iteration 60
+Iteration 65
+Iteration 70
+Iteration 75
+Iteration 80
+Iteration 85
+Iteration 90
+Iteration 95
+Iteration 100
+Iteration 105
+Iteration 110
+Iteration 115
+Iteration 120
+Iteration 125
+Iteration 130
+Iteration 135
+Iteration 140
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Chunk 0 complete.
+Chunk 0 complete.
+Using rank: 1536
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Iteration 55
+Iteration 60
+Iteration 65
+Iteration 70
+Iteration 75
+Iteration 80
+Iteration 85
+Iteration 90
+Iteration 95
+Iteration 100
+Iteration 105
+Iteration 110
+Iteration 115
+Iteration 120
+Iteration 125
+Iteration 130
+Iteration 135
+Iteration 140
+Iteration 145
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Chunk 0 complete.
+Chunk 0 complete.
+Using rank: 1536
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Iteration 55
+Iteration 60
+Iteration 65
+Iteration 70
+Iteration 75
+Iteration 80
+Iteration 85
+Iteration 90
+Iteration 95
+Iteration 100
+Iteration 105
+Iteration 110
+Iteration 115
+Iteration 120
+Iteration 125
+Iteration 130
+Iteration 135
+Iteration 140
+Iteration 145
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Chunk 0 complete.
+Using rank: 1024
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Iteration 55
+Iteration 60
+Iteration 65
+Iteration 70
+Iteration 75
+Iteration 80
+Iteration 85
+Iteration 90
+Iteration 95
+Iteration 100
+Iteration 105
+Iteration 110
+Iteration 115
+Iteration 120
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Chunk 0 complete.
+Using rank: 1024
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Iteration 55
+Iteration 60
+Iteration 65
+Iteration 70
+Iteration 75
+Iteration 80
+Iteration 85
+Iteration 90
+Iteration 95
+Iteration 100
+Iteration 105
+Iteration 110
+Iteration 115
+Iteration 120
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Chunk 0 complete.
+Using rank: 1024
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Iteration 55
+Iteration 60
+Iteration 65
+Iteration 70
+Iteration 75
+Iteration 80
+Iteration 85
+Iteration 90
+Iteration 95
+Iteration 100
+Iteration 105
+Iteration 110
+Iteration 115
+Iteration 120
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Chunk 0 complete.
+Using rank: 1024
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Iteration 55
+Iteration 60
+Iteration 65
+Iteration 70
+Iteration 75
+Iteration 80
+Iteration 85
+Iteration 90
+Iteration 95
+Iteration 100
+Iteration 105
+Iteration 110
+Iteration 115
+Iteration 120
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Chunk 0 complete.
+Using rank: 1024
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Iteration 55
+Iteration 60
+Iteration 65
+Iteration 70
+Iteration 75
+Iteration 80
+Iteration 85
+Iteration 90
+Iteration 95
+Iteration 100
+Iteration 105
+Iteration 110
+Iteration 115
+Iteration 120
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Chunk 0 complete.
+Using rank: 1024
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Iteration 55
+Iteration 60
+Iteration 65
+Iteration 70
+Iteration 75
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Chunk 0 complete.
+Using rank: 1024
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Iteration 55
+Iteration 60
+Iteration 65
+Iteration 70
+Iteration 75
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Chunk 0 complete.
+Using rank: 1024
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Iteration 55
+Iteration 60
+Iteration 65
+Iteration 70
+Iteration 75
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Chunk 0 complete.
+Using rank: 1024
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Iteration 55
+Iteration 60
+Iteration 65
+Iteration 70
+Iteration 75
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Chunk 0 complete.
+Using rank: 1024
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Iteration 55
+Iteration 60
+Iteration 65
+Iteration 70
+Iteration 75
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Using rank: 512
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Iteration 55
+Iteration 60
+Iteration 65
+Iteration 70
+Iteration 75
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Using rank: 512
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Iteration 55
+Iteration 60
+Iteration 65
+Iteration 70
+Iteration 75
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Using rank: 512
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Iteration 55
+Iteration 60
+Iteration 65
+Iteration 70
+Iteration 75
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Using rank: 512
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Iteration 55
+Iteration 60
+Iteration 65
+Iteration 70
+Iteration 75
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Chunk 0 complete.
+Using rank: 1024
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Using rank: 512
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Using rank: 512
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Using rank: 512
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Using rank: 512
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Using rank: 512
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Using rank: 512
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Using rank: 512
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Using rank: 512
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Using rank: 512
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Using rank: 512
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Using rank: 512
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Using rank: 512
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Using rank: 512
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Using rank: 512
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Using rank: 512
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Using rank: 512
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Using rank: 512
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Using rank: 512
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Using rank: 512
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Using rank: 512
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Iteration 10
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Using rank: 512
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Using rank: 512
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Using rank: 512
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Using rank: 512
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Fitting complete.
+starting fitting
+Chunk 0 complete.
+Using rank: 512
+Chunk 0 complete.
+Iteration 0
+Iteration 5
+Fitting complete.
+HP: [1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5, 5.5, 6]
+Held out res: [0.19869675625594152, 0.25271787779671484, 0.3286390700043057, 0.40319882181467603, 0.4687838737041985, 0.505981697968725, 0.517603059544375, 0.48794480593474016, 0.521532684964039, 0.5314193245527287]
+slurmstepd: error: *** JOB 377900 ON gpu-1 CANCELLED AT 2023-12-22T13:45:38 ***

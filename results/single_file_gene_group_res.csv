@@ -1,0 +1,7 @@
+File_name,CV_split,Kernel,Train_pearson_r,Test_pearson_r                
+/stg3/data1/sam/enhancer_prediction/validation/BSS01391_count_matrix_pro.npy,0,Linear,0.6862217023119725,0.6898658843661427
+/stg3/data1/sam/enhancer_prediction/validation/BSS01391_count_matrix_pro.npy,1,Linear,0.6892733337354764,0.6784914236435748
+/stg3/data1/sam/enhancer_prediction/validation/BSS01391_count_matrix_pro.npy,2,Linear,0.6880867596475558,0.6718518118569532
+/stg3/data1/sam/enhancer_prediction/validation/BSS01391_count_matrix_pro.npy,3,Linear,0.6931753002811156,0.6615890381031859
+/stg3/data1/sam/enhancer_prediction/validation/BSS01391_count_matrix_pro.npy,4,Linear,0.6902872818243528,0.6726204381004864
+/stg3/data1/sam/enhancer_prediction/validation/BSS01391_count_matrix_pro.npy,0,Poly,0.6613217935332824,0.5866133634983646

@@ -36,3 +36,7 @@ NA,train,0.5700484087571188,Linear,promoters,Split_4
 ALL_LINES,train,0.5700484087571188,Linear,promoters,Split_4
 NA,valid,0.5750714566210023,Linear,promoters,Split_4
 ALL_LINES,valid,0.5750714566210023,Linear,promoters,Split_4
+NA,train,0.8146370285744842,RBF,promoters,Split_0
+ALL_LINES,train,0.8146370285744842,RBF,promoters,Split_0
+NA,valid,0.3612417949847054,RBF,promoters,Split_0
+ALL_LINES,valid,0.3612417949847054,RBF,promoters,Split_0

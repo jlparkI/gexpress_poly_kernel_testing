@@ -7,7 +7,7 @@ import argparse
 import numpy as np
 
 from config_files import lasso_flagged_motifs
-from gexpress_testing.pkernel_experiments.linear_poly_experiments import run_traintest_split
+from gexpress_testing.pkernel_experiments.linear_poly_experiments import run_traintest_split, single_group_gcv
 from gexpress_testing.pkernel_experiments.linear_poly_experiments import run_traintest_exact_quad
 from gexpress_testing.pkernel_experiments.linear_poly_experiments import run_gene_group_traintest_split
 from gexpress_testing.utilities.utilities import filter_data, get_tt_split, cleanup_storage
@@ -38,6 +38,9 @@ def gen_arg_parser():
                             "saves weights to disk. subset_split is the same as approx_split "
                             "but uses a subset of the promoter motifs selected by LASSO. gene_cv "
                             "runs a 5x CV over different subsets of the available genes.")
+    arg_parser.add_argument("--sfgene_exp", nargs=2, help="If supplied, all other commands "
+            "are ignored. Two arguments are expected: a filepath for xdata and a filepath for "
+            "ydata. This single pair of files will be used to run a 5x CV.")
     return arg_parser
 
 
@@ -48,6 +51,13 @@ if __name__ == "__main__":
     if len(sys.argv) == 1:
         parser.print_help(sys.stderr)
         sys.exit(1)
+
+    if args.sfgene_exp is not None:
+        print(f"Now working on {args.sfgene_exp[0]}, {args.sfgene_exp[1]}", flush=True)
+        single_group_gcv(args.sfgene_exp[0], args.sfgene_exp[1],
+                         os.path.join(home_dir, "results", "single_file_gene_group_res.csv"))
+        sys.exit(0)
+
 
     try:
         with open(os.path.join(home_dir, "config_files", "EpiMapID_Name_nonDup.txt"), "r",
